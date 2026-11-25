@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WebDev Basics - Learn HTML, CSS & Backend</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/script.js" defer></script>
+
+</head>
+<body>
+
+<!-- ============================================
+     HEADER with Language Switcher & Theme Toggle
+     ============================================ -->
+<header>
+  <div class="header-left">
+    <button id="hamburger" class="hamburger" onclick="toggleSidebar()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="logo"><> WebDev <span>Basics</span></div>
+  </div>
+  <div style="display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap;">
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('en')" title="English" aria-label="English">
+        <span class="lang-code">ENG</span><span class="lang-name">English</span>
+      </button>
+      <button class="lang-btn" onclick="setLang('hl')" title="Hiligaynon" aria-label="Hiligaynon">
+        <span class="lang-code">HIL</span><span class="lang-name">Hiligaynon</span>
+      </button>
+      <button class="lang-btn" onclick="setLang('tg')" title="Tagalog" aria-label="Tagalog">
+        <span class="lang-code">TAG</span><span class="lang-name">Tagalog</span>
+      </button>
+    </div>
+    <button id="themeToggle" class="theme-btn" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌙</button>
+  </div>
+</header>
+
+<div class="layout">
+
+  <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+  <!-- ============================================
+       SIDEBAR NAVIGATION
+       ============================================ -->
+  <aside id="sidebar">
+    <div class="nav-section">
+      <div class="nav-title" data-i18n="nav_html">HTML</div>
+      <a class="nav-link active" onclick="showLesson('html-skeleton', this)">1. Skeleton</a>
+      <a class="nav-link" onclick="showLesson('html-tags', this)">2. Basic Tags</a>
+      <a class="nav-link" onclick="showLesson('html-text', this)">3. Text & Headings</a>
+      <a class="nav-link" onclick="showLesson('html-lists', this)">4. Lists</a>
+      <a class="nav-link" onclick="showLesson('html-links', this)">5. Links & Images</a>
+      <a class="nav-link" onclick="showLesson('html-tables', this)">6. Tables</a>
+      <a class="nav-link" onclick="showLesson('html-forms', this)">7. Forms</a>
+      <a class="nav-link" onclick="showLesson('html-semantic', this)">8. Semantic HTML</a>
+      <a class="nav-link" onclick="showLesson('html-classid', this)">9. Class, ID & Sections</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-title" data-i18n="nav_css">CSS</div>
+      <a class="nav-link" onclick="showLesson('css-intro', this)">1. CSS Basics</a>
+      <a class="nav-link" onclick="showLesson('css-selectors', this)">2. Selectors</a>
+      <a class="nav-link" onclick="showLesson('css-colors', this)">3. Colors & Text</a>
+      <a class="nav-link" onclick="showLesson('css-box', this)">4. Box Model</a>
+      <a class="nav-link" onclick="showLesson('css-flex', this)">5. Flexbox</a>
+      <a class="nav-link" onclick="showLesson('css-grid', this)">6. Grid</a>
+      <a class="nav-link" onclick="showLesson('css-responsive', this)">7. Responsive</a>
+      <a class="nav-link" onclick="showLesson('css-types', this)">8. External, Internal & Inline</a>
+    </div>
+    <div class="nav-section">
+      <div class="nav-title" data-i18n="nav_backend">BACKEND (XAMPP)</div>
+      <a class="nav-link" onclick="showLesson('php-intro', this)">1. XAMPP Setup</a>
+      <a class="nav-link" onclick="showLesson('php-basics', this)">2. PHP Basics</a>
+      <a class="nav-link" onclick="showLesson('php-forms', this)">3. Handling Forms</a>
+      <a class="nav-link" onclick="showLesson('php-db', this)">4. MySQL Database</a>
+      <a class="nav-link" onclick="showLesson('php-crud', this)">5. CRUD Example</a>
+    </div>
+
+<div class="sidebar-footer">
+  <p>Made by J.</p>
+</div>
+  </aside>
+
+  <!-- ============================================
+       MAIN CONTENT
+       ============================================ -->
+  <main>
+
+    <!-- ============ HTML 1: SKELETON ============ -->
+    <section class="lesson active" id="html-skeleton">
+      <span class="badge html">HTML</span>
+      <h1 data-i18n="skel_title">The HTML Skeleton</h1>
+      <p data-i18n="skel_intro">Every website starts with the same basic structure. It's like a house — you need the frame before you can paint the walls. This is called the <strong>HTML skeleton</strong>.</p>
+
+      <h2 data-i18n="skel_code_heading">The Full Skeleton</h2>
+      <p data-i18n="skel_code_intro">Copy this into a file called <code>index.html</code>:</p>
+
+<pre><span class="cmt">&lt;!-- This tells the browser: "I'm an HTML5 document" --&gt;</span>
+<span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">lang</span>=<span class="str">"en"</span><span class="tag">&gt;</span>
+
+  <span class="cmt">&lt;!-- HEAD: invisible info about the page --&gt;</span>
+  <span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="str">"UTF-8"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="str">"viewport"</span> <span class="attr">content</span>=<span class="str">"width=device-width, initial-scale=1.0"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;title&gt;</span>My First Page<span class="tag">&lt;/title&gt;</span>
+  <span class="tag">&lt;/head&gt;</span>
+
+  <span class="cmt">&lt;!-- BODY: everything the user SEES --&gt;</span>
+  <span class="tag">&lt;body&gt;</span>
+    <span class="tag">&lt;h1&gt;</span>Hello, World!<span class="tag">&lt;/h1&gt;</span>
+    <span class="tag">&lt;p&gt;</span>This is my first website.<span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;/body&gt;</span>
+
+<span class="tag">&lt;/html&gt;</span></pre>
+
+      <h2 data-i18n="skel_parts">What Each Part Means</h2>
+
+      <table class="prop-table">
+        <tr>
+          <th data-i18n="th_tag">Tag</th>
+          <th data-i18n="th_use">What it does</th>
+        </tr>
+        <tr>
+          <td><code>&lt;!DOCTYPE html&gt;</code></td>
+          <td data-i18n="skel_doctype">Tells the browser "this is HTML5". Always put it on line 1.</td>
+        </tr>
+        <tr>
+          <td><code>&lt;html lang="en"&gt;</code></td>
+          <td data-i18n="skel_html">The container for the whole page. <code>lang="en"</code> means "English language".</td>
+        </tr>
+        <tr>
+          <td><code>&lt;head&gt;</code></td>
+          <td data-i18n="skel_head">Invisible settings: title, charset, viewport, links to CSS, etc.</td>
+        </tr>
+        <tr>
+          <td><code>&lt;meta charset="UTF-8"&gt;</code></td>
+          <td data-i18n="skel_charset">Lets you use special characters like ñ, é, and emojis 😀.</td>
+        </tr>
+        <tr>
+          <td><code>&lt;meta viewport&gt;</code></td>
+          <td data-i18n="skel_viewport">Makes the site fit mobile screens properly. Essential for responsive design!</td>
+        </tr>
+        <tr>
+          <td><code>&lt;title&gt;</code></td>
+          <td data-i18n="skel_title_tag">The text shown in the browser tab.</td>
+        </tr>
+        <tr>
+          <td><code>&lt;body&gt;</code></td>
+          <td data-i18n="skel_body">Everything the user actually sees on the page.</td>
+        </tr>
+      </table>
+
+      <div class="note">
+        <strong data-i18n="tip">💡 Tip:</strong>
+        <span data-i18n="skel_tip">Think of <code>&lt;head&gt;</code> as the "settings" of the page and <code>&lt;body&gt;</code> as the "content" of the page.</span>
+      </div>
+
+      <div class="editor">
+        <div class="editor-header">
+          <strong data-i18n="try_it">🧪 Try it yourself!</strong>
+          <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+        </div>
+        <div class="editor-grid">
+          <textarea spellcheck="false"><!DOCTYPE html>
+<html>
+  <head>
+    <title>My Page</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <p>Change this text and click Run.</p>
+  </body>
+</html></textarea>
+          <iframe title="preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HTML 2: BASIC TAGS ============ -->
+    <section class="lesson" id="html-tags">
+      <span class="badge html">HTML</span>
+      <h1 data-i18n="tags_title">Basic HTML Tags</h1>
+      <p data-i18n="tags_intro">Tags are the building blocks of HTML. Most come in pairs: an opening tag <code>&lt;p&gt;</code> and a closing tag <code>&lt;/p&gt;</code>.</p>
+
+      <h2 data-i18n="tags_common">Common Tags</h2>
+      <table class="prop-table">
+        <tr><th>Tag</th><th>Example</th><th data-i18n="th_use">What it does</th></tr>
+        <tr><td><code>&lt;h1&gt;–&lt;h6&gt;</code></td><td><code>&lt;h1&gt;Big&lt;/h1&gt;</code></td><td data-i18n="tags_h">Headings. h1 is biggest, h6 is smallest.</td></tr>
+        <tr><td><code>&lt;p&gt;</code></td><td><code>&lt;p&gt;Text&lt;/p&gt;</code></td><td data-i18n="tags_p">A paragraph of text.</td></tr>
+        <tr><td><code>&lt;br&gt;</code></td><td><code>&lt;br&gt;</code></td><td data-i18n="tags_br">Line break (new line).</td></tr>
+        <tr><td><code>&lt;hr&gt;</code></td><td><code>&lt;hr&gt;</code></td><td data-i18n="tags_hr">Horizontal line (divider).</td></tr>
+        <tr><td><code>&lt;strong&gt;</code></td><td><code>&lt;strong&gt;Bold&lt;/strong&gt;</code></td><td data-i18n="tags_strong">Bold (important) text.</td></tr>
+        <tr><td><code>&lt;em&gt;</code></td><td><code>&lt;em&gt;Italic&lt;/em&gt;</code></td><td data-i18n="tags_em">Italic (emphasized) text.</td></tr>
+        <tr><td><code>&lt;span&gt;</code></td><td><code>&lt;span&gt;inline&lt;/span&gt;</code></td><td data-i18n="tags_span">A small piece of inline text.</td></tr>
+        <tr><td><code>&lt;div&gt;</code></td><td><code>&lt;div&gt;box&lt;/div&gt;</code></td><td data-i18n="tags_div">A block container (box).</td></tr>
+      </table>
+
+      <h2 data-i18n="tags_structure">Code Structure</h2>
+<pre><span class="tag">&lt;h1&gt;</span>Heading 1<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;h2&gt;</span>Heading 2<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;p&gt;</span>This is a <span class="tag">&lt;strong&gt;</span>bold<span class="tag">&lt;/strong&gt;</span> word and an <span class="tag">&lt;em&gt;</span>italic<span class="tag">&lt;/em&gt;</span> word.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;hr&gt;</span>
+<span class="tag">&lt;p&gt;</span>After a line.<span class="tag">&lt;br&gt;</span>After a break.<span class="tag">&lt;/p&gt;</span></pre>
+
+      <div class="editor">
+        <div class="editor-header">
+          <strong data-i18n="try_it">🧪 Try it yourself!</strong>
+          <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+        </div>
+        <div class="editor-grid">
+          <textarea spellcheck="false"><h1>My Big Title</h1>
+<p>This is <strong>bold</strong> and this is <em>italic</em>.</p>
+<hr>
+<p>Line one<br>Line two after a break.</p>
+<div>I am a div — a box container.</div></textarea>
+          <iframe title="preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HTML 3: TEXT & HEADINGS ============ -->
+    <section class="lesson" id="html-text">
+      <span class="badge html">HTML</span>
+      <h1 data-i18n="text_title">Text & Headings</h1>
+      <p data-i18n="text_intro">Use headings (h1–h6) to organize content. Use paragraphs for normal text. Never use headings just to make text big — use CSS for that.</p>
+      <h2 data-i18n="text_rules">Golden Rules</h2>
+      <ul>
+        <li data-i18n="text_rule1">Only ONE <code>&lt;h1&gt;</code> per page (usually the main title).</li>
+        <li data-i18n="text_rule2">Go in order: h1 → h2 → h3. Don't skip.</li>
+        <li data-i18n="text_rule3">Use <code>&lt;p&gt;</code> for paragraphs, not <code>&lt;br&gt;&lt;br&gt;</code>.</li>
+        <li data-i18n="text_rule4">Use <code>&lt;strong&gt;</code> for importance, <code>&lt;b&gt;</code> only for visual bold.</li>
+      </ul>
+      <div class="note">
+        <strong data-i18n="tip">💡 Tip:</strong>
+        <span data-i18n="text_tip">Headings help screen readers and Google understand your page structure.</span>
+      </div>
+      <div class="editor">
+        <div class="editor-header">
+          <strong data-i18n="try_it">🧪 Try it yourself!</strong>
+          <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+        </div>
+        <div class="editor-grid">
+          <textarea spellcheck="false"><h1>Main Title</h1>
+<h2>Section 1</h2>
+<p>Some text under section 1.</p>
+<h2>Section 2</h2>
+<p>Some text under section 2.</p>
+<h3>Sub-section 2.1</h3>
+<p>Details here.</p></textarea>
+          <iframe title="preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HTML 4: LISTS (EXPANDED) ============ -->
+    <section class="lesson" id="html-lists">
+      <span class="badge html">HTML</span>
+      <h1 data-i18n="lists_title">Lists</h1>
+      <p data-i18n="lists_intro">There are two main list types: <strong>unordered</strong> (bullets) and <strong>ordered</strong> (numbers).</p>
+
+      <h2 data-i18n="lists_code">Code Structure</h2>
+<pre><span class="cmt">&lt;!-- Unordered list (bullets) --&gt;</span>
+<span class="tag">&lt;ul&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Apple<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Banana<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span>
+
+<span class="cmt">&lt;!-- Ordered list (numbers) --&gt;</span>
+<span class="tag">&lt;ol&gt;</span>
+  <span class="tag">&lt;li&gt;</span>First step<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Second step<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ol&gt;</span></pre>
+
+      <table class="prop-table">
+        <tr><th>Tag</th><th data-i18n="th_use">What it does</th></tr>
+        <tr><td><code>&lt;ul&gt;</code></td><td data-i18n="list_ul">Unordered list (bullets).</td></tr>
+        <tr><td><code>&lt;ol&gt;</code></td><td data-i18n="list_ol">Ordered list (1, 2, 3).</td></tr>
+        <tr><td><code>&lt;li&gt;</code></td><td data-i18n="list_li">One item in the list.</td></tr>
+      </table>
+
+      <h2 data-i18n="ol_types_title">Types of Ordered Lists (&lt;ol&gt;)</h2>
+      <p data-i18n="ol_types_intro">You can change how an ordered list numbers its items using the <code>type</code> attribute:</p>
+
+      <table class="prop-table">
+        <tr><th>Type</th><th>Attribute</th><th>Result</th></tr>
+        <tr><td>Numbers (default)</td><td><code>&lt;ol type="1"&gt;</code></td><td>1, 2, 3, 4…</td></tr>
+        <tr><td>Uppercase letters</td><td><code>&lt;ol type="A"&gt;</code></td><td>A, B, C, D…</td></tr>
+        <tr><td>Lowercase letters</td><td><code>&lt;ol type="a"&gt;</code></td><td>a, b, c, d…</td></tr>
+        <tr><td>Uppercase Roman</td><td><code>&lt;ol type="I"&gt;</code></td><td>I, II, III, IV…</td></tr>
+        <tr><td>Lowercase Roman</td><td><code>&lt;ol type="i"&gt;</code></td><td>i, ii, iii, iv…</td></tr>
+        <tr><td>Start from a number</td><td><code>&lt;ol start="5"&gt;</code></td><td>5, 6, 7, 8…</td></tr>
+        <tr><td>Reverse order</td><td><code>&lt;ol reversed&gt;</code></td><td>3, 2, 1 (counts down)</td></tr>
+      </table>
+
+      <h3 data-i18n="ol_example_title">Example: All Types</h3>
+<pre><span class="cmt">&lt;!-- Letters (A, B, C) --&gt;</span>
+<span class="tag">&lt;ol</span> <span class="attr">type</span>=<span class="str">"A"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Wash rice<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Add water<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Cook<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ol&gt;</span>
+
+<span class="cmt">&lt;!-- Roman numerals (I, II, III) --&gt;</span>
+<span class="tag">&lt;ol</span> <span class="attr">type</span>=<span class="str">"I"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Step one<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Step two<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ol&gt;</span>
+
+<span class="cmt">&lt;!-- Start at 5 --&gt;</span>
+<span class="tag">&lt;ol</span> <span class="attr">start</span>=<span class="str">"5"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Item 5<span class="tag">&lt;/li&gt;</span>
+  <span class="tag">&lt;li&gt;</span>Item 6<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ol&gt;</span></pre>
+
+      <div class="editor">
+        <div class="editor-header">
+          <strong data-i18n="try_it">🧪 Try it yourself!</strong>
+          <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+        </div>
+        <div class="editor-grid">
+          <textarea spellcheck="false"><h3>Numbers (default)</h3>
+<ol>
+  <li>Pizza</li>
+  <li>Adobo</li>
+  <li>Mango</li>
+</ol>
+
+<h3>Uppercase Letters</h3>
+<ol type="A">
+  <li>Wash rice</li>
+  <li>Add water</li>
+  <li>Cook</li>
+</ol>
+
+<h3>Lowercase Roman</h3>
+<ol type="i">
+  <li>First</li>
+  <li>Second</li>
+  <li>Third</li>
+</ol>
+
+<h3>Start at 5</h3>
+<ol start="5">
+  <li>Item five</li>
+  <li>Item six</li>
+</ol>
+
+<h3>Reverse</h3>
+<ol reversed>
+  <li>Third place</li>
+  <li>Second place</li>
+  <li>First place</li>
+</ol>
+
+<h3>Unordered (bullets)</h3>
+<ul>
+  <li>Apple</li>
+  <li>Banana</li>
+</ul></textarea>
+          <iframe title="preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HTML 5: LINKS & IMAGES (EXPANDED) ============ -->
+    <section class="lesson" id="html-links">
+      <span class="badge html">HTML</span>
+      <h1 data-i18n="links_title">Links & Images</h1>
+      <p data-i18n="links_intro">Links connect pages. Images show pictures. Both use the <strong>attribute</strong> system: <code>name="value"</code>.</p>
+
+      <h2 data-i18n="links_code">Links — Code Structure</h2>
+<pre><span class="cmt">&lt;!-- LINK: href = where to go --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"https://google.com"</span><span class="tag">&gt;</span>Visit Google<span class="tag">&lt;/a&gt;</span>
+
+<span class="cmt">&lt;!-- Open in new tab --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"https://google.com"</span> <span class="attr">target</span>=<span class="str">"_blank"</span><span class="tag">&gt;</span>Open new tab<span class="tag">&lt;/a&gt;</span>
+
+<span class="cmt">&lt;!-- Link to another page on your site --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"about.html"</span><span class="tag">&gt;</span>About Us<span class="tag">&lt;/a&gt;</span>
+
+<span class="cmt">&lt;!-- Link to a section on the same page (id) --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"#contact"</span><span class="tag">&gt;</span>Go to Contact<span class="tag">&lt;/a&gt;</span></pre>
+
+      <table class="prop-table">
+        <tr><th data-i18n="th_attr">Attribute</th><th data-i18n="th_use">What it does</th></tr>
+        <tr><td><code>href</code></td><td data-i18n="ln_href">The link destination (URL or file).</td></tr>
+        <tr><td><code>target="_blank"</code></td><td data-i18n="ln_target">Opens link in a new tab.</td></tr>
+      </table>
+
+      <h2 data-i18n="img_insert_title">Inserting Images (&lt;img&gt;)</h2>
+      <p data-i18n="img_insert_intro">The <code>&lt;img&gt;</code> tag shows a picture. It has <strong>no closing tag</strong> — it's a "self-closing" tag. The most important attributes are <code>src</code> and <code>alt</code>.</p>
+
+<pre><span class="cmt">&lt;!-- Basic image --&gt;</span>
+<span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="str">"cat.jpg"</span> <span class="attr">alt</span>=<span class="str">"A cute cat"</span><span class="tag">&gt;</span>
+
+<span class="cmt">&lt;!-- Image from the internet (URL) --&gt;</span>
+<span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="str">"https://picsum.photos/200/120"</span> <span class="attr">alt</span>=<span class="str">"Random photo"</span><span class="tag">&gt;</span>
+
+<span class="cmt">&lt;!-- Image with width and height --&gt;</span>
+<span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="str">"cat.jpg"</span> <span class="attr">alt</span>=<span class="str">"A cute cat"</span>
+     <span class="attr">width</span>=<span class="str">"200"</span> <span class="attr">height</span>=<span class="str">"150"</span><span class="tag">&gt;</span>
+
+<span class="cmt">&lt;!-- Image inside a link (clickable image) --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"https://google.com"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="str">"logo.png"</span> <span class="attr">alt</span>=<span class="str">"Google logo"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/a&gt;</span></pre>
+
+      <table class="prop-table">
+        <tr><th>Attribute</th><th data-i18n="th_use">What it does</th></tr>
+        <tr><td><code>src</code></td><td data-i18n="img_attr_src">The image file path or URL (required).</td></tr>
+        <tr><td><code>alt</code></td><td data-i18n="img_attr_alt">Text shown if image fails — also read by screen readers (required for accessibility).</td></tr>
+        <tr><td><code>width</code></td><td data-i18n="img_attr_width">Image width in pixels (or %).</td></tr>
+        <tr><td><code>height</code></td><td data-i18n="img_attr_height">Image height in pixels (or %).</td></tr>
+        <tr><td><code>title</code></td><td data-i18n="img_attr_title">Tooltip shown when hovering over the image.</td></tr>
+        <tr><td><code>loading="lazy"</code></td><td data-i18n="img_attr_lazy">Loads the image only when it's about to be seen (faster page).</td></tr>
+      </table>
+
+      <div class="note">
+        <strong data-i18n="tip">💡 Tip:</strong>
+        <span>Always use <code>alt</code>! It helps blind users (screen readers) and shows text if the image fails to load. Google also uses it for image search.</span>
+      </div>
+
+      <div class="editor">
+        <div class="editor-header">
+          <strong data-i18n="try_it">🧪 Try it yourself!</strong>
+          <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+        </div>
+        <div class="editor-grid">
+          <textarea spellcheck="false"><h2>My Links</h2>
+<a href="https://google.com" target="_blank">Open Google</a>
+<br><br>
+<a href="https://wikipedia.org">Open Wikipedia</a>
+
+<h2>My Image</h2>
+<img src="https://picsum.photos/200/120" alt="Random photo" width="200">
+
+<h2>Clickable Image</h2>
+<a href="https://google.com" target="_blank">
+  <img src="https://picsum.photos/100/60" alt="Click me" width="100">
+</a></textarea>
+          <iframe title="preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HTML 6: TABLES ============ -->
+    <section class="lesson" id="html-tables">
+      <span class="badge html">HTML</span>
+      <h1 data-i18n="tbl_title">Tables</h1>
+      <p data-i18n="tbl_intro">Tables show data in rows and columns. Do NOT use tables for layout — use CSS Grid/Flexbox instead.</p>
+
+      <h2 data-i18n="tbl_code">Code Structure</h2>
+<pre><span class="tag">&lt;table&gt;</span>
+  <span class="tag">&lt;thead&gt;</span>
+    <span class="tag">&lt;tr&gt;</span>
+      <span class="tag">&lt;th&gt;</span>Name<span class="tag">&lt;/th&gt;</span>
+      <span class="tag">&lt;th&gt;</span>Age<span class="tag">&lt;/th&gt;</span>
+    <span class="tag">&lt;/tr&gt;</span>
+  <span class="tag">&lt;/thead&gt;</span>
+  <span class="tag">&lt;tbody&gt;</span>
+    <span class="tag">&lt;tr&gt;</span>
+      <span class="tag">&lt;td&gt;</span>Maria<span class="tag">&lt;/td&gt;</span>
+      <span class="tag">&lt;td&gt;</span>25<span class="tag">&lt;/td&gt;</span>
+    <span class="tag">&lt;/tr&gt;</span>
+  <span class="tag">&lt;/tbody&gt;</span>
+<span class="tag">&lt;/table&gt;</span></pre>
+
+      <table class="prop-table">
+        <tr><th>Tag</th><th data-i18n="th_use">What it does</th></tr>
+        <tr><td><code>&lt;table&gt;</code></td><td data-i18n="tbl_table">The table container.</td></tr>
+        <tr><td><code>&lt;tr&gt;</code></td><td data-i18n="tbl_tr">A table row.</td></tr>
+        <tr><td><code>&lt;th&gt;</code></td><td data-i18n="tbl_th">A header cell (bold by default).</td></tr>
+        <tr><td><code>&lt;td&gt;</code></td><td data-i18n="tbl_td">A normal data cell.</td></tr>
+      </table>
+
+      <div class="editor">
+        <div class="editor-header">
+          <strong data-i18n="try_it">🧪 Try it yourself!</strong>
+          <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+        </div>
+        <div class="editor-grid">
+          <textarea spellcheck="false"><table border="1" cellpadding="6">
+  <tr>
+    <th>Name</th><th>Age</th><th>City</th>
+  </tr>
+  <tr>
+    <td>Maria</td><td>25</td><td>Manila</td>
+  </tr>
+  <tr>
+    <td>Juan</td><td>30</td><td>Cebu</td>
+  </tr>
+</table></textarea>
+          <iframe title="preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HTML 7: FORMS ============ -->
+    <section class="lesson" id="html-forms">
+      <span class="badge html">HTML</span>
+      <h1 data-i18n="form_title">Forms</h1>
+      <p data-i18n="form_intro">Forms collect user input. They're used for login, signup, search, and contact pages.</p>
+
+      <h2 data-i18n="form_code">Code Structure</h2>
+<pre><span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="str">"submit.php"</span> <span class="attr">method</span>=<span class="str">"POST"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="str">"name"</span><span class="tag">&gt;</span>Name:<span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="str">"text"</span> <span class="attr">id</span>=<span class="str">"name"</span> <span class="attr">name</span>=<span class="str">"name"</span><span class="tag">&gt;</span>
+
+  <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="str">"email"</span><span class="tag">&gt;</span>Email:<span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="str">"email"</span> <span class="attr">id</span>=<span class="str">"email"</span> <span class="attr">name</span>=<span class="str">"email"</span><span class="tag">&gt;</span>
+
+  <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="str">"submit"</span><span class="tag">&gt;</span>Send<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span></pre>
+
+      <table class="prop-table">
+        <tr><th>Element</th><th data-i18n="th_use">What it does</th></tr>
+        <tr><td><code>&lt;form&gt;</code></td><td data-i18n="form_el">Container. <code>action</code> = where to send, <code>method</code> = GET or POST.</td></tr>
+        <tr><td><code>&lt;input&gt;</code></td><td data-i18n="form_input">A field. <code>type</code> can be text, email, password, number, checkbox, radio, date…</td></tr>
+        <tr><td><code>&lt;label&gt;</code></td><td data-i18n="form_label">Text describing a field.</td></tr>
+        <tr><td><code>&lt;textarea&gt;</code></td><td data-i18n="form_ta">Multi-line text box.</td></tr>
+        <tr><td><code>&lt;select&gt;</code></td><td data-i18n="form_select">Dropdown list.</td></tr>
+        <tr><td><code>&lt;button&gt;</code></td><td data-i18n="form_btn">Clickable button.</td></tr>
+      </table>
+
+      <div class="editor">
+        <div class="editor-header">
+          <strong data-i18n="try_it">🧪 Try it yourself!</strong>
+          <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+        </div>
+        <div class="editor-grid">
+          <textarea spellcheck="false"><form>
+  <h3>Common Input Types</h3>
+
+  <label>Text:</label>
+  <input type="text" placeholder="Type your name"><br><br>
+
+  <label>Email:</label>
+  <input type="email" placeholder="you@example.com"><br><br>
+
+  <label>Password:</label>
+  <input type="password" placeholder="••••••••"><br><br>
+
+  <label>Number:</label>
+  <input type="number" min="1" max="100" value="25"><br><br>
+
+  <label>Date:</label>
+  <input type="date"><br><br>
+
+  <label>Time:</label>
+  <input type="time"><br><br>
+
+  <label>Color:</label>
+  <input type="color" value="#38bdf8"><br><br>
+
+  <label>Range:</label>
+  <input type="range" min="0" max="100" value="50"><br><br>
+
+  <label>Checkbox:</label>
+  <input type="checkbox" checked> I agree<br><br>
+
+  <label>Radio:</label>
+  <input type="radio" name="g" value="m"> Male
+  <input type="radio" name="g" value="f"> Female<br><br>
+
+  <label>File:</label>
+  <input type="file"><br><br>
+
+  <label>Dropdown (select):</label>
+  <select>
+    <option>Option 1</option>
+    <option>Option 2</option>
+    <option>Option 3</option>
+  </select><br><br>
+
+  <label>Multi-line text (textarea):</label><br>
+  <input type="text" placeholder="Imagine a big text box here..."><br><br>
+
+  <button type="button">Submit</button>
+  <button type="reset">Reset</button>
+</form></textarea>
+          <iframe title="preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HTML 8: SEMANTIC ============ -->
+    <section class="lesson" id="html-semantic">
+      <span class="badge html">HTML</span>
+      <h1 data-i18n="sem_title">Semantic HTML</h1>
+      <p data-i18n="sem_intro">Semantic tags describe their meaning. They help Google, screen readers, and other developers understand your page — better than plain <code>&lt;div&gt;</code>s.</p>
+
+      <h2 data-i18n="sem_code">Code Structure</h2>
+<pre><span class="tag">&lt;header&gt;</span>Logo + navigation<span class="tag">&lt;/header&gt;</span>
+
+<span class="tag">&lt;nav&gt;</span>Menu links<span class="tag">&lt;/nav&gt;</span>
+
+<span class="tag">&lt;main&gt;</span>
+  <span class="tag">&lt;section&gt;</span>
+    <span class="tag">&lt;h1&gt;</span>Article Title<span class="tag">&lt;/h1&gt;</span>
+    <span class="tag">&lt;p&gt;</span>Content…<span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;/section&gt;</span>
+
+  <span class="tag">&lt;aside&gt;</span>Sidebar<span class="tag">&lt;/aside&gt;</span>
+<span class="tag">&lt;/main&gt;</span>
+
+<span class="tag">&lt;footer&gt;</span>Copyright 2025<span class="tag">&lt;/footer&gt;</span></pre>
+
+      <table class="prop-table">
+        <tr><th>Tag</th><th data-i18n="th_use">What it does</th></tr>
+        <tr><td><code>&lt;header&gt;</code></td><td data-i18n="sem_header">Top area: logo, title.</td></tr>
+        <tr><td><code>&lt;nav&gt;</code></td><td data-i18n="sem_nav">Navigation menu.</td></tr>
+        <tr><td><code>&lt;main&gt;</code></td><td data-i18n="sem_main">Main content (only one per page).</td></tr>
+        <tr><td><code>&lt;section&gt;</code></td><td data-i18n="sem_section">A themed group of content.</td></tr>
+        <tr><td><code>&lt;article&gt;</code></td><td data-i18n="sem_article">A standalone piece (blog post, news).</td></tr>
+        <tr><td><code>&lt;aside&gt;</code></td><td data-i18n="sem_aside">Sidebar — extra info.</td></tr>
+        <tr><td><code>&lt;footer&gt;</code></td><td data-i18n="sem_footer">Bottom area: copyright, links.</td></tr>
+      </table>
+
+      <div class="editor">
+        <div class="editor-header">
+          <strong data-i18n="try_it">🧪 Try it yourself!</strong>
+          <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+        </div>
+        <div class="editor-grid">
+          <textarea spellcheck="false"><header style="background:#eee;padding:10px">
+  <strong>My Site</strong>
+</header>
+<nav style="background:#ddd;padding:6px">
+  <a href="#">Home</a> | <a href="#">About</a>
+</nav>
+<main style="padding:10px">
+  <section>
+    <h1>Welcome</h1>
+    <p>This is the main content.</p>
+  </section>
+</main>
+<footer style="background:#eee;padding:8px">
+  © 2025
+</footer></textarea>
+          <iframe title="preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HTML 9: CLASS, ID & SECTIONS (NEW) ============ -->
+    <section class="lesson" id="html-classid">
+      <span class="badge html">HTML</span>
+      <h1>Class, ID & Sections</h1>
+      <p>Classes and IDs are <strong>labels</strong> you give to HTML elements so CSS and JavaScript can find them. They don't change how the element looks on their own — you need CSS for that.</p>
+
+      <h2>Specifying a Class</h2>
+      <p>Use <code>class="name"</code> on any element. Multiple elements can share the <strong>same class</strong>.</p>
+
+<pre><span class="cmt">&lt;!-- Many elements can use the same class --&gt;</span>
+<span class="tag">&lt;p</span> <span class="attr">class</span>=<span class="str">"highlight"</span><span class="tag">&gt;</span>First paragraph<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;p</span> <span class="attr">class</span>=<span class="str">"highlight"</span><span class="tag">&gt;</span>Second paragraph<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"highlight"</span><span class="tag">&gt;</span>A box<span class="tag">&lt;/div&gt;</span>
+
+<span class="cmt">&lt;!-- An element can have MULTIPLE classes (space-separated) --&gt;</span>
+<span class="tag">&lt;p</span> <span class="attr">class</span>=<span class="str">"highlight big-text centered"</span><span class="tag">&gt;</span>Styled in 3 ways<span class="tag">&lt;/p&gt;</span></pre>
+
+      <p>In CSS, a class is written with a <strong>dot</strong>:</p>
+<pre><span class="kw">.highlight</span> { background: yellow; }
+<span class="kw">.big-text</span> { font-size: 24px; }</pre>
+
+      <h2>Specifying an ID</h2>
+      <p>Use <code>id="name"</code>. An ID must be <strong>unique</strong> — only ONE element per page can have a given ID.</p>
+
+<pre><span class="cmt">&lt;!-- Only ONE element can have id="main-title" --&gt;</span>
+<span class="tag">&lt;h1</span> <span class="attr">id</span>=<span class="str">"main-title"</span><span class="tag">&gt;</span>Welcome<span class="tag">&lt;/h1&gt;</span>
+
+<span class="cmt">&lt;!-- IDs are also used for in-page links --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"#main-title"</span><span class="tag">&gt;</span>Jump to title<span class="tag">&lt;/a&gt;</span></pre>
+
+      <p>In CSS, an ID is written with a <strong>hash (#)</strong>:</p>
+<pre><span class="kw">#main-title</span> { color: navy; }</pre>
+
+      <h2>Difference Between Class and ID</h2>
+      <div class="compare-box">
+        <div class="card">
+          <h4>Class (.name)</h4>
+          <p>✅ Can be used on <strong>many</strong> elements</p>
+          <p>✅ One element can have <strong>multiple</strong> classes</p>
+          <p>✅ Reusable — great for styling groups</p>
+          <p>CSS: <code>.button { … }</code></p>
+          <p>Use for: styling, reusable styles</p>
+        </div>
+        <div class="card">
+          <h4>ID (#name)</h4>
+          <p>✅ Must be <strong>unique</strong> (only one per page)</p>
+          <p>✅ Higher priority in CSS than class</p>
+          <p>✅ Used for page anchors (<code>#section</code>)</p>
+          <p>CSS: <code>#header { … }</code></p>
+          <p>Use for: unique elements, JS targets, page anchors</p>
+        </div>
+      </div>
+
+      <h2>Sections</h2>
+      <p>The <code>&lt;section&gt;</code> tag groups related content. Each section usually has its own heading (h2, h3, etc.). It's a semantic way to divide a page.</p>
+
+<pre><span class="tag">&lt;section</span> <span class="attr">id</span>=<span class="str">"about"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;h2&gt;</span>About Us<span class="tag">&lt;/h2&gt;</span>
+  <span class="tag">&lt;p&gt;</span>We build websites…<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/section&gt;</span>
+
+<span class="tag">&lt;section</span> <span class="attr">id</span>=<span class="str">"services"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;h2&gt;</span>Our Services<span class="tag">&lt;/h2&gt;</span>
+  <span class="tag">&lt;p&gt;</span>Web design, development…<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/section&gt;</span></pre>
+
+      <p>Common practice: give each section an <code>id</code> so you can link to it (e.g. <code>&lt;a href="#about"&gt;</code>).</p>
+
+      <h2>Full Example</h2>
+<pre><span class="tag">&lt;style&gt;</span>
+  <span class="kw">.card</span> { border: 1px solid #ccc; padding: 10px; margin: 10px; }
+  <span class="kw">.highlight</span> { background: yellow; }
+  <span class="kw">#main-title</span> { color: navy; text-align: center; }
+<span class="tag">&lt;/style&gt;</span>
+
+<span class="tag">&lt;h1</span> <span class="attr">id</span>=<span class="str">"main-title"</span><span class="tag">&gt;</span>My Page<span class="tag">&lt;/h1&gt;</span>
+
+<span class="tag">&lt;section</span> <span class="attr">id</span>=<span class="str">"about"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;h2&gt;</span>About<span class="tag">&lt;/h2&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="str">"card"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;p</span> <span class="attr">class</span>=<span class="str">"highlight"</span><span class="tag">&gt;</span>Important note!<span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;p&gt;</span>Normal text.<span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/section&gt;</span></pre>
+
+      <div class="note">
+        <strong>💡 Tip:</strong>
+        <span>Use <strong>classes</strong> for styles you want to reuse, and <strong>IDs</strong> for unique, one-of-a-kind elements (like a main header or a section you link to).</span>
+      </div>
+
+      <div class="editor">
+        <div class="editor-header">
+          <strong data-i18n="try_it">🧪 Try it yourself!</strong>
+          <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+        </div>
+        <div class="editor-grid">
+          <textarea spellcheck="false"><style>
+  .card {
+    border: 2px solid #888;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 10px 0;
+    background: #f9f9f9;
+  }
+  .highlight {
+    background: yellow;
+    padding: 4px;
+  }
+  #main-title {
+    color: navy;
+    text-align: center;
+  }
+</style>
+
+<h1 id="main-title">My Website</h1>
+
+<a href="#about">Go to About section</a>
+
+<section id="about">
+  <h2>About</h2>
+  <div class="card">
+    <p class="highlight">I am highlighted!</p>
+    <p>I am normal text inside a card.</p>
+  </div>
+  <div class="card">
+    <p class="highlight">Me too!</p>
+    <p>Same class = same style.</p>
+  </div>
+</section></textarea>
+          <iframe title="preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CSS 1: BASICS ============ -->
+    <section class="lesson" id="css-intro">
+      <span class="badge css">CSS</span>
+      <h1 data-i18n="css_title">CSS Basics</h1>
+      <p data-i18n="css_intro">CSS = Cascading Style Sheets. It controls how HTML <em>looks</em>: colors, fonts, spacing, layout.</p>
+
+      <h2 data-i18n="css_3ways">3 Ways to Add CSS</h2>
+<pre><span class="cmt">&lt;!-- 1. INLINE (inside the tag — avoid if possible) --&gt;</span>
+<span class="tag">&lt;p</span> <span class="attr">style</span>=<span class="str">"color: red;"</span><span class="tag">&gt;</span>Red text<span class="tag">&lt;/p&gt;</span>
+
+<span class="cmt">&lt;!-- 2. INTERNAL (inside &lt;head&gt;) --&gt;</span>
+<span class="tag">&lt;style&gt;</span>
+  p { color: blue; }
+<span class="tag">&lt;/style&gt;</span>
+
+<span class="cmt">&lt;!-- 3. EXTERNAL (best!) --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="attr">href</span>=<span class="str">"style.css"</span><span class="tag">&gt;</span></pre>
+
+      <p>There's a full lesson comparing all three later — see <strong>"8. External, Internal & Inline"</strong> in the CSS menu.</p>
+
+      <h2 data-i18n="css_syntax">CSS Syntax</h2>
+      <p data-i18n="css_syntax_intro">Every CSS rule looks the same:</p>
+<pre><span class="kw">selector</span> {
+  <span class="attr">property</span>: <span class="str">value</span>;
+  <span class="attr">property</span>: <span class="str">value</span>;
+}
+
+<span class="cmt">/* Example: */</span>
+<span class="kw">p</span> {
+  <span class="attr">color</span>: <span class="str">blue</span>;
+  <span class="attr">font-size</span>: <span class="str">18px</span>;
+}</pre>
+
+      <table class="prop-table">
+        <tr><th data-i18n="th_part">Part</th><th data-i18n="th_meaning">Meaning</th></tr>
+        <tr><td><code>selector</code></td><td data-i18n="css_sel">Which element(s) to style (e.g. <code>p</code> = all paragraphs).</td></tr>
+        <tr><td><code>property</code></td><td data-i18n="css_prop">What to change (e.g. <code>color</code>, <code>font-size</code>).</td></tr>
+        <tr><td><code>value</code></td><td data-i18n="css_val">The setting (e.g. <code>red</code>, <code>18px</code>).</td></tr>
+        <tr><td><code>;</code></td><td data-i18n="css_semi">Ends each declaration (don't forget!).</td></tr>
+      </table>
+
+      <div class="editor">
+        <div class="editor-header">
+          <strong data-i18n="try_it">🧪 Try it yourself!</strong>
+          <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+        </div>
+        <div class="editor-grid">
+          <textarea spellcheck="false"><style>
+  body {
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+  }
+  h1 {
+    color: darkblue;
+    text-align: center;
+  }
+  p {
+    color: #333;
+    font-size: 18px;
+  }
+</style>
+<h1>Styled Heading</h1>
+<p>This paragraph has CSS applied to it.</p></textarea>
+          <iframe title="preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CSS 2: SELECTORS ============ -->
+    <section class="lesson" id="css-selectors">
+      <span class="badge css">CSS</span>
+      <h1 data-i18n="sel_title">CSS Selectors</h1>
+      <p data-i18n="sel_intro">Selectors choose <em>which</em> elements get styled.</p>
+
+<pre><span class="cmt">/* 1. Tag selector — all &lt;p&gt; tags */</span>
+<span class="kw">p</span> { color: gray; }
+
+<span class="cmt">/* 2. Class selector — any element with class="note" */</span>
+<span class="kw">.note</span> { color: orange; }
+
+<span class="cmt">/* 3. ID selector — the ONE element with id="main" */</span>
+<span class="kw">#main</span> { color: red; }
+
+<span class="cmt">/* 4. Multiple tags */</span>
+<span class="kw">h1, h2, h3</span> { margin-bottom: 10px; }
+
+<span class="cmt">/* 5. Descendant (p inside div) */</span>
+<span class="kw">div p</span> { color: purple; }</pre>
+
+      <table class="prop-table">
+        <tr><th data-i18n="th_sel">Selector</th><th data-i18n="th_example">Example</th><th data-i18n="th_use">What it does</th></tr>
+        <tr><td><code>tag</code></td><td><code>h1</code></td><td data-i18n="sel_tag">Every h1 element.</td></tr>
+        <tr><td><code>.class</code></td><td><code>.btn</code></td><td data-i18n="sel_class">Every element with class="btn".</td></tr>
+        <tr><td><code>#id</code></td><td><code>#header</code></td><td data-i18n="sel_id">The single element with id="header".</td></tr>
+        <tr><td><code>*</code></td><td><code>*</code></td><td data-i18n="sel_all">Every element (universal).</td></tr>
+        <tr><td><code>:hover</code></td><td><code>a:hover</code></td><td data-i18n="sel_hover">When the mouse is over the element.</td></tr>
+      </table>
+
+      <div class="editor">
+        <div class="editor-header">
+          <strong data-i18n="try_it">🧪 Try it yourself!</strong>
+          <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+        </div>
+        <div class="editor-grid">
+          <textarea spellcheck="false"><style>
+  p { color: gray; }
+  .highlight { color: red; font-weight: bold; }
+  #special { color: blue; }
+</style>
+<p>Normal paragraph (gray).</p>
+<p class="highlight">Paragraph with class (red).</p>
+<p id="special">Paragraph with ID (blue).</p></textarea>
+          <iframe title="preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CSS 3: COLORS & TEXT ============ -->
+    <section class="lesson" id="css-colors">
+      <span class="badge css">CSS</span>
+      <h1 data-i18n="color_title">Colors & Text Properties</h1>
+      <p data-i18n="color_intro">Here are the most-used color and text properties — with their values and what they do.</p>
+
+      <table class="prop-table">
+        <tr><th data-i18n="th_prop">Property</th><th data-i18n="th_values">Values</th><th data-i18n="th_use">What it does</th></tr>
+        <tr><td><code>color</code></td><td><code>red</code> <code>#ff0000</code> <code>rgb(255,0,0)</code></td><td data-i18n="col_color">Text color.</td></tr>
+        <tr><td><code>background-color</code></td><td><code>yellow</code> <code>#eee</code></td><td data-i18n="col_bg">Background color of the element.</td></tr>
+        <tr><td><code>font-size</code></td><td><code>16px</code> <code>1.2rem</code> <code>large</code></td><td data-i18n="col_size">Size of text.</td></tr>
+        <tr><td><code>font-family</code></td><td><code>Arial, sans-serif</code></td><td data-i18n="col_family">The font style.</td></tr>
+        <tr><td><code>font-weight</code></td><td><code>normal</code> <code>bold</code> <code>700</code></td><td data-i18n="col_weight">How thick/bold the text.</td></tr>
+        <tr><td><code>text-align</code></td><td><code>left</code> <code>center</code> <code>right</code></td><td data-i18n="col_align">Where the text sits.</td></tr>
+        <tr><td><code>text-decoration</code></td><td><code>none</code> <code>underline</code> <code>line-through</code></td><td data-i18n="col_deco">Underline / strike-through.</td></tr>
+        <tr><td><code>line-height</code></td><td><code>1.5</code> <code>24px</code></td><td data-i18n="col_line">Spacing between lines.</td></tr>
+      </table>
+
+      <h2 data-i18n="color_code">Code Structure</h2>
+<pre><span class="kw">p</span> {
+  <span class="attr">color</span>: <span class="str">#ffffff</span>;              <span class="cmt">/* white text */</span>
+  <span class="attr">background-color</span>: <span class="str">#333333</span>; <span class="cmt">/* dark background */</span>
+  <span class="attr">font-size</span>: <span class="str">18px</span>;
+  <span class="attr">font-weight</span>: <span class="str">bold</span>;
+  <span class="attr">text-align</span>: <span class="str">center</span>;
+  <span class="attr">text-decoration</span>: <span class="str">underline</span>;
+}</pre>
+
+      <div class="editor">
+        <div class="editor-header">
+          <strong data-i18n="try_it">🧪 Try it yourself!</strong>
+          <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+        </div>
+        <div class="editor-grid">
+          <textarea spellcheck="false"><style>
+  .box1 {
+    color: white;
+    background-color: crimson;
+    text-align: center;
+    font-size: 22px;
+    padding: 20px;
+  }
+  .box2 {
+    color: #003366;
+    background-color: #d0e6ff;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 20px;
+  }
+</style>
+<p class="box1">Red box, white centered text.</p>
+<p class="box2">Blue box, underlined bold text.</p></textarea>
+          <iframe title="preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CSS 4: BOX MODEL (EXPANDED with padding/margin) ============ -->
+    <section class="lesson" id="css-box">
+      <span class="badge css">CSS</span>
+      <h1 data-i18n="box_title">The Box Model</h1>
+      <p data-i18n="box_intro">Every HTML element is a box with 4 layers: <strong>content → padding → border → margin</strong>. Understanding this is the #1 CSS skill.</p>
+
+<pre><span class="cmt">/* BOX MODEL in code */</span>
+<span class="kw">.box</span> {
+  <span class="attr">width</span>: <span class="str">200px</span>;              <span class="cmt">/* content width */</span>
+  <span class="attr">padding</span>: <span class="str">20px</span>;              <span class="cmt">/* inner space */</span>
+  <span class="attr">border</span>: <span class="str">3px solid black</span>;     <span class="cmt">/* the border */</span>
+  <span class="attr">margin</span>: <span class="str">30px</span>;               <span class="cmt">/* outer space */</span>
+}</pre>
+
+      <table class="prop-table">
+        <tr><th data-i18n="th_prop">Property</th><th data-i18n="th_use">What it does</th></tr>
+        <tr><td><code>width</code> / <code>height</code></td><td data-i18n="box_size">The content box size.</td></tr>
+        <tr><td><code>padding</code></td><td data-i18n="box_padding">Space <em>inside</em> the border (around the content).</td></tr>
+        <tr><td><code>border</code></td><td data-i18n="box_border">The line around the padding.</td></tr>
+        <tr><td><code>margin</code></td><td data-i18n="box_margin">Space <em>outside</em> the border (between elements).</td></tr>
+        <tr><td><code>box-sizing: border-box</code></td><td data-i18n="box_sizing">Makes width include padding + border. Recommended always!</td></tr>
+      </table>
+
+      <h2>Padding vs Margin — Detailed</h2>
+      <div class="compare-box">
+        <div class="card">
+          <h4>Padding (inside)</h4>
+          <p>Space <strong>inside</strong> the element, between the content and the border.</p>
+          <p>Adding padding makes the element <strong>bigger</strong>.</p>
+          <p>Background color <strong>covers</strong> the padding area.</p>
+          <p>Example: <code>padding: 20px;</code></p>
+        </div>
+        <div class="card">
+          <h4>Margin (outside)</h4>
+          <p>Space <strong>outside</strong> the element, between it and other elements.</p>
+          <p>Adding margin does <strong>not</strong> make the element bigger — it pushes neighbors away.</p>
+          <p>Background color does <strong>not</strong> cover margin.</p>
+          <p>Example: <code>margin: 20px;</code></p>
+        </div>
+      </div>
+
+      <h2>All 4 Sides: shorthand</h2>
+<pre><span class="cmt">/* One value = all 4 sides */</span>
+<span class="attr">padding</span>: <span class="str">10px</span>;
+
+<span class="cmt">/* Two values = top/bottom  left/right */</span>
+<span class="attr">padding</span>: <span class="str">10px 20px</span>;
+
+<span class="cmt">/* Three values = top  left/right  bottom */</span>
+<span class="attr">padding</span>: <span class="str">10px 20px 30px</span>;
+
+<span class="cmt">/* Four values = top  right  bottom  left (clockwise) */</span>
+<span class="attr">padding</span>: <span class="str">10px 20px 30px 40px</span>;
+
+<span class="cmt">/* Individual sides */</span>
+<span class="attr">padding-top</span>: <span class="str">10px</span>;
+<span class="attr">padding-right</span>: <span class="str">20px</span>;
+<span class="attr">padding-bottom</span>: <span class="str">10px</span>;
+<span class="attr">padding-left</span>: <span class="str">20px</span>;
+
+<span class="cmt">/* Same works for margin */</span>
+<span class="attr">margin</span>: <span class="str">0 auto</span>;   <span class="cmt">/* centers a block horizontally */</span></pre>
+
+      <table class="prop-table">
+        <tr><th>Shorthand</th><th>Top</th><th>Right</th><th>Bottom</th><th>Left</th></tr>
+        <tr><td><code>padding: 10px;</code></td><td>10</td><td>10</td><td>10</td><td>10</td></tr>
+        <tr><td><code>padding: 10px 20px;</code></td><td>10</td><td>20</td><td>10</td><td>20</td></tr>
+        <tr><td><code>padding: 10px 20px 30px;</code></td><td>10</td><td>20</td><td>30</td><td>20</td></tr>
+        <tr><td><code>padding: 10px 20px 30px 40px;</code></td><td>10</td><td>20</td><td>30</td><td>40</td></tr>
+      </table>
+
+      <div class="editor">
+        <div class="editor-header">
+          <strong data-i18n="try_it">🧪 Try it yourself!</strong>
+          <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+        </div>
+        <div class="editor-grid">
+          <textarea spellcheck="false"><style>
+  .box {
+    width: 200px;
+    padding: 20px;            /* inside */
+    border: 4px solid black;
+    margin: 20px;             /* outside */
+    background-color: lightyellow;
+  }
+  .box2 {
+    padding: 10px 40px 30px 5px;  /* different each side */
+    background-color: lightblue;
+    border: 2px dashed navy;
+    margin: 10px;
+  }
+</style>
+<div class="box">
+  Padding 20px, margin 20px.
+</div>
+<div class="box2">
+  Padding: top 10, right 40, bottom 30, left 5.
+</div></textarea>
+          <iframe title="preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CSS 5: FLEXBOX ============ -->
+    <section class="lesson" id="css-flex">
+      <span class="badge css">CSS</span>
+      <h1 data-i18n="flex_title">Flexbox</h1>
+      <p data-i18n="flex_intro">Flexbox arranges items in a row or column, and is perfect for menus and card rows.</p>
+
+<pre><span class="kw">.container</span> {
+  <span class="attr">display</span>: <span class="str">flex</span>;
+  <span class="attr">justify-content</span>: <span class="str">space-between</span>; <span class="cmt">/* horizontal */</span>
+  <span class="attr">align-items</span>: <span class="str">center</span>;          <span class="cmt">/* vertical */</span>
+  <span class="attr">gap</span>: <span class="str">10px</span>;
+}</pre>
+
+      <table class="prop-table">
+        <tr><th data-i18n="th_prop">Property</th><th data-i18n="th_values">Common values</th><th data-i18n="th_use">What it does</th></tr>
+        <tr><td><code>display</code></td><td><code>flex</code></td><td data-i18n="flex_disp">Turns on flexbox.</td></tr>
+        <tr><td><code>flex-direction</code></td><td><code>row</code> <code>column</code></td><td data-i18n="flex_dir">Horizontal or vertical.</td></tr>
+        <tr><td><code>justify-content</code></td><td><code>flex-start</code> <code>center</code> <code>space-between</code></td><td data-i18n="flex_jc">Main-axis alignment.</td></tr>
+        <tr><td><code>align-items</code></td><td><code>flex-start</code> <code>center</code> <code>stretch</code></td><td data-i18n="flex_ai">Cross-axis alignment.</td></tr>
+        <tr><td><code>gap</code></td><td><code>10px</code></td><td data-i18n="flex_gap">Space between items.</td></tr>
+      </table>
+
+      <div class="editor">
+        <div class="editor-header">
+          <strong data-i18n="try_it">🧪 Try it yourself!</strong>
+          <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+        </div>
+        <div class="editor-grid">
+          <textarea spellcheck="false"><style>
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    background: #eee;
+    padding: 10px;
+  }
+  .item {
+    background: steelblue;
+    color: white;
+    padding: 20px;
+    border-radius: 6px;
+    flex: 1;
+    text-align: center;
+  }
+</style>
+<div class="row">
+  <div class="item">One</div>
+  <div class="item">Two</div>
+  <div class="item">Three</div>
+</div></textarea>
+          <iframe title="preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CSS 6: GRID ============ -->
+    <section class="lesson" id="css-grid">
+      <span class="badge css">CSS</span>
+      <h1 data-i18n="grid_title">CSS Grid</h1>
+      <p data-i18n="grid_intro">Grid makes 2D layouts (rows AND columns). Perfect for page layouts and photo galleries.</p>
+
+<pre><span class="kw">.grid</span> {
+  <span class="attr">display</span>: <span class="str">grid</span>;
+  <span class="attr">grid-template-columns</span>: <span class="str">repeat(3, 1fr)</span>; <span class="cmt">/* 3 equal cols */</span>
+  <span class="attr">gap</span>: <span class="str">10px</span>;
+}</pre>
+
+      <table class="prop-table">
+        <tr><th data-i18n="th_prop">Property</th><th data-i18n="th_values">Example</th><th data-i18n="th_use">What it does</th></tr>
+        <tr><td><code>display</code></td><td><code>grid</code></td><td data-i18n="grid_disp">Turns on grid.</td></tr>
+        <tr><td><code>grid-template-columns</code></td><td><code>1fr 1fr 1fr</code></td><td data-i18n="grid_cols">Define column count and width.</td></tr>
+        <tr><td><code>gap</code></td><td><code>10px</code></td><td data-i18n="grid_gap">Space between cells.</td></tr>
+      </table>
+
+      <div class="editor">
+        <div class="editor-header">
+          <strong data-i18n="try_it">🧪 Try it yourself!</strong>
+          <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+        </div>
+        <div class="editor-grid">
+          <textarea spellcheck="false"><style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .cell {
+    background: coral;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 6px;
+  }
+</style>
+<div class="grid">
+  <div class="cell">1</div>
+  <div class="cell">2</div>
+  <div class="cell">3</div>
+  <div class="cell">4</div>
+  <div class="cell">5</div>
+  <div class="cell">6</div>
+</div></textarea>
+          <iframe title="preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CSS 7: RESPONSIVE ============ -->
+    <section class="lesson" id="css-responsive">
+      <span class="badge css">CSS</span>
+      <h1 data-i18n="resp_title">Responsive Design</h1>
+      <p data-i18n="resp_intro">Responsive design means your site looks good on phones, tablets, and desktops. The main tool is <strong>media queries</strong>.</p>
+
+<pre><span class="cmt">/* Default: mobile-first styles */</span>
+<span class="kw">.container</span> { <span class="attr">width</span>: <span class="str">100%</span>; }
+
+<span class="cmt">/* When screen is 768px or wider (tablet/desktop) */</span>
+<span class="kw">@media (min-width: 768px)</span> {
+  <span class="kw">.container</span> { <span class="attr">width</span>: <span class="str">750px</span>; }
+}
+
+<span class="cmt">/* When screen is 1024px or wider (desktop) */</span>
+<span class="kw">@media (min-width: 1024px)</span> {
+  <span class="kw">.container</span> { <span class="attr">width</span>: <span class="str">1000px</span>; }
+}</pre>
+
+      <table class="prop-table">
+        <tr><th data-i18n="th_part">Part</th><th data-i18n="th_use">What it does</th></tr>
+        <tr><td><code>@media</code></td><td data-i18n="resp_media">Starts a media query block.</td></tr>
+        <tr><td><code>min-width</code></td><td data-i18n="resp_min">Applies when screen is <em>at least</em> that wide.</td></tr>
+        <tr><td><code>max-width</code></td><td data-i18n="resp_max">Applies when screen is <em>at most</em> that wide.</td></tr>
+        <tr><td><code>%</code> / <code>rem</code> / <code>fr</code></td><td data-i18n="resp_units">Flexible units — better than fixed <code>px</code> for layouts.</td></tr>
+      </table>
+
+      <div class="editor">
+        <div class="editor-header">
+          <strong data-i18n="try_it">🧪 Try it yourself!</strong>
+          <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+        </div>
+        <div class="editor-grid">
+          <textarea spellcheck="false"><style>
+  .box {
+    background: lightblue;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+    font-size: 16px;
+  }
+  @media (min-width: 600px) {
+    .box {
+      background: lightgreen;
+      font-size: 22px;
+    }
+  }
+</style>
+<div class="box">
+  Resize the preview window. Below 600px it's blue; above it's green.
+</div></textarea>
+          <iframe title="preview"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CSS 8: EXTERNAL, INTERNAL & INLINE (NEW) ============ -->
+    <section class="lesson" id="css-types">
+      <span class="badge css">CSS</span>
+      <h1>External, Internal & Inline CSS</h1>
+      <p>There are 3 places you can write CSS. Each has a different use. Here's the full breakdown.</p>
+
+      <h2>1. Inline CSS</h2>
+      <p>Written directly inside an HTML tag using the <code>style</code> attribute. It only affects <strong>that one element</strong>.</p>
+<pre><span class="tag">&lt;p</span> <span class="attr">style</span>=<span class="str">"color: red; font-size: 18px;"</span><span class="tag">&gt;</span>Red text<span class="tag">&lt;/p&gt;</span>
+
+<span class="tag">&lt;h1</span> <span class="attr">style</span>=<span class="str">"text-align: center; color: navy;"</span><span class="tag">&gt;</span>Centered title<span class="tag">&lt;/h1&gt;</span></pre>
+      <table class="prop-table">
+        <tr><th>Pros</th><th>Cons</th></tr>
+        <tr><td>Quick for one-off changes</td><td>Hard to reuse across many elements</td></tr>
+        <tr><td>Overrides other CSS (highest priority)</td><td>Messy HTML — mixes content and style</td></tr>
+        <tr><td>Good for testing quickly</td><td>Cannot use pseudo-classes like <code>:hover</code></td></tr>
+      </table>
+
+      <h2>2. Internal CSS</h2>
+      <p>Written inside a <code>&lt;style&gt;</code> tag, usually in the <code>&lt;head&gt;</code>. It affects <strong>the whole page</strong>.</p>
+<pre><span class="tag">&lt;head&gt;</span>
+  <span class="tag">&lt;style&gt;</span>
+    <span class="kw">body</span> { background: #f0f0f0; }
+    <span class="kw">h1</span>   { color: navy; text-align: center; }
+    <span class="kw">.note</span> { background: yellow; padding: 8px; }
+  <span class="tag">&lt;/style&gt;</span>
+<span class="tag">&lt;/head&gt;</span></pre>
+      <table class="prop-table">
+        <tr><th>Pros</th><th>Cons</th></tr>
+        <tr><td>All styles in one place (the page)</td><td>Cannot be shared with other pages</td></tr>
+        <tr><td>No extra file needed</td><td>If you have 10 pages, you repeat it 10 times</td></tr>
+        <tr><td>Good for single-page sites</td><td>Page gets heavy with lots of CSS</td></tr>
+      </table>
+
+      <h2>3. External CSS</h2>
+      <p>Written in a separate <code>.css</code> file and linked with <code>&lt;link&gt;</code>. It can style <strong>many pages at once</strong> — this is the <strong>best practice</strong>.</p>
+<pre><span class="cmt">&lt;!-- In your HTML &lt;head&gt; --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="attr">href</span>=<span class="str">"style.css"</span><span class="tag">&gt;</span>
+
+<span class="cmt">/* Inside style.css */</span>
+<span class="kw">body</span> {
+  <span class="attr">font-family</span>: <span class="str">Arial, sans-serif</span>;
+  <span class="attr">background</span>: <span class="str">#f8f8f8</span>;
+}
+
+<span class="kw">h1</span> { <span class="attr">color</span>: <span class="str">navy</span>; }
+
+<span class="kw">.card</span> {
+  <span class="attr">border</span>: <span class="str">1px solid #ccc</span>;
+  <span class="attr">padding</span>: <span class="str">16px</span>;
+}</pre>
+      <table class="prop-table">
+        <tr><th>Pros</th><th>Cons</th></tr>
+        <tr><td>Reusable across many pages</td><td>Needs an extra HTTP request (very minor)</td></tr>
+        <tr><td>Cleaner HTML (no style mixing)</td><td>Requires file management</td></tr>
+        <tr><td>Browser caches it (faster on repeat visits)</td><td>—</td></tr>
+        <tr><td>Easy to maintain</td><td>—</td></tr>
+      </table>
+
+      <h2>Which One Wins? Priority Order</h2>
+      <p>If you use all three, the browser applies them in this priority (highest first):</p>
+      <ol>
+        <li><strong>Inline</strong> (<code>style="..."</code>) — wins over everything</li>
+        <li><strong>Internal</strong> (<code>&lt;style&gt;</code>) — wins over external</li>
+        <li><strong>External</strong> (<code>.css</code> file) — base styles</li>
+      </ol>
+      <p>Tip: Use <code>!important</code> to force a rule to win, but use it sparingly.</p>
+
+      <div class="compare-box">
+        <div class="card">
+          <h4>When to use Inline</h4>
+          <p>Quick test, one-off tweaks, HTML emails (which don't support external CSS).</p>
+        </div>
+        <div class="card">
+          <h4>When to use Internal</h4>
+          <p>Single-page sites, or a page that needs unique styles not used anywhere else.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top:1rem;">
+        <h4 style="color:var(--accent); margin-bottom:0.5rem;">When to use External</h4>
+        <p style="margin:0;">For real projects with multiple pages. This is what professional developers use 95% of the time.</p>
+      </div>
+
+      <div class="editor">
+        <div class="editor-header">
+          <strong data-i18n="try_it">🧪 Try it yourself!</strong>
+          <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+        </div>
+        <div class="editor-grid">
+          <textarea spellcheck="false"><!-- Internal CSS (in <style>) -->
+<style>
+  h1 { color: navy; text-align: center; }
+  .box { background: #eef; padding: 12px; margin: 10px 0; }
+</style>
+
+<h1>Title (styled by internal CSS)</h1>
+
+<!-- Inline CSS overrides internal -->
+<p style="color: red; font-weight: bold;">
+  I'm red because inline wins!
+</p>
+
+<!-- Class from internal CSS -->
+<div class="box">
+  I'm a .box — styled by internal CSS.
+</div>
+
+<div class="box">
+  Me too! Same class, same style.
+</div></textarea>
+          <iframe title="preview"></iframe>
+        </div>
+      </div>
+
+      <div class="note">
+        <strong>💡 Tip:</strong>
+        <span>In real projects, put ALL your CSS in an external <code>.css</code> file. Keep HTML clean. Only use inline for tiny one-off fixes.</span>
+      </div>
+    </section>
+
+    <!-- ============ BACKEND 1: XAMPP SETUP ============ -->
+    <section class="lesson" id="php-intro">
+      <span class="badge php">BACKEND</span>
+      <h1 data-i18n="xampp_title">Getting Started with XAMPP</h1>
+      <p data-i18n="xampp_intro">XAMPP is a free program that lets you run PHP and MySQL on your own computer — no hosting needed. It's the easiest way to learn backend.</p>
+
+      <h2 data-i18n="xampp_steps">Setup Steps</h2>
+      <ol>
+        <li data-i18n="xampp_s1">Download XAMPP from <strong>apachefriends.org</strong>.</li>
+        <li data-i18n="xampp_s2">Install it (default options are fine).</li>
+        <li data-i18n="xampp_s3">Open the <strong>XAMPP Control Panel</strong>.</li>
+        <li data-i18n="xampp_s4">Click <strong>Start</strong> next to <strong>Apache</strong> (the web server).</li>
+        <li data-i18n="xampp_s5">Click <strong>Start</strong> next to <strong>MySQL</strong> (the database).</li>
+        <li data-i18n="xampp_s6">Open your browser and go to <code>http://localhost</code> — you should see the XAMPP dashboard.</li>
+      </ol>
+
+      <div class="note">
+        <strong data-i18n="tip">💡 Tip:</strong>
+        <span data-i18n="xampp_tip">Your website files go inside <code>C:\xampp\htdocs\</code>. Create a folder there, e.g. <code>htdocs\mysite\</code>, and visit <code>http://localhost/mysite/</code>.</span>
+      </div>
+
+      <h2 data-i18n="xampp_phpmyadmin">phpMyAdmin</h2>
+      <p data-i18n="xampp_pma">Go to <code>http://localhost/phpmyadmin</code> — this is where you create and manage MySQL databases visually.</p>
+    </section>
+
+    <!-- ============ BACKEND 2: PHP BASICS ============ -->
+    <section class="lesson" id="php-basics">
+      <span class="badge php">BACKEND</span>
+      <h1 data-i18n="php_title">PHP Basics</h1>
+      <p data-i18n="php_intro">PHP runs on the server. It generates HTML that gets sent to the browser. Save files as <code>.php</code>.</p>
+
+      <h2 data-i18n="php_syntax">PHP Syntax</h2>
+<pre><span class="kw">&lt;?php</span>
+  <span class="cmt">// 1. Variables start with $</span>
+  <span class="attr">$name</span> = <span class="str">"Maria"</span>;
+  <span class="attr">$age</span> = <span class="str">25</span>;
+
+  <span class="cmt">// 2. Print to the page</span>
+  <span class="kw">echo</span> <span class="str">"Hello, $name!"</span>;
+
+  <span class="cmt">// 3. Conditionals</span>
+  <span class="kw">if</span> ($age &gt;= <span class="str">18</span>) {
+    <span class="kw">echo</span> <span class="str">"Adult"</span>;
+  } <span class="kw">else</span> {
+    <span class="kw">echo</span> <span class="str">"Minor"</span>;
+  }
+
+  <span class="cmt">// 4. Loops</span>
+  <span class="kw">for</span> ($i = <span class="str">1</span>; $i &lt;= <span class="str">5</span>; $i++) {
+    <span class="kw">echo</span> $i . <span class="str">" "</span>;
+  }
+
+  <span class="cmt">// 5. Arrays</span>
+  $fruits = [<span class="str">"apple"</span>, <span class="str">"banana"</span>, <span class="str">"mango"</span>];
+  <span class="kw">foreach</span> ($fruits <span class="kw">as</span> $fruit) {
+    <span class="kw">echo</span> $fruit;
+  }
+<span class="kw">?&gt;</span></pre>
+
+      <table class="prop-table">
+        <tr><th data-i18n="th_part">Part</th><th data-i18n="th_use">What it does</th></tr>
+        <tr><td><code>&lt;?php … ?&gt;</code></td><td data-i18n="php_tag">PHP code block. Everything between runs on the server.</td></tr>
+        <tr><td><code>$variable</code></td><td data-i18n="php_var">A variable — always starts with <code>$</code>.</td></tr>
+        <tr><td><code>echo</code></td><td data-i18n="php_echo">Prints text to the page.</td></tr>
+        <tr><td><code>.</code> (dot)</td><td data-i18n="php_concat">Joins two strings together.</td></tr>
+        <tr><td><code>//</code></td><td data-i18n="php_comment">A comment — ignored by PHP.</td></tr>
+      </table>
+
+      <div class="note">
+        <strong data-i18n="note">📌 Note:</strong>
+        <span data-i18n="php_note">PHP cannot run inside this in-browser editor because it needs a server. To test it, save the file as <code>test.php</code> inside <code>C:\xampp\htdocs\test\</code> and open <code>http://localhost/test/test.php</code>.</span>
+      </div>
+    </section>
+
+    <!-- ============ BACKEND 3: FORMS ============ -->
+    <section class="lesson" id="php-forms">
+      <span class="badge php">BACKEND</span>
+      <h1 data-i18n="phpform_title">Handling Forms in PHP</h1>
+      <p data-i18n="phpform_intro">This is the core of backend: user types in a form → PHP receives it → PHP responds.</p>
+
+      <h2 data-i18n="phpform_step1">1. The HTML form</h2>
+<pre><span class="tag">&lt;form</span> <span class="attr">method</span>=<span class="str">"POST"</span> <span class="attr">action</span>=<span class="str">"process.php"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;label&gt;</span>Name:<span class="tag">&lt;/label&gt;</span>
+  <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="str">"text"</span> <span class="attr">name</span>=<span class="str">"name"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;button&gt;</span>Submit<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span></pre>
+
+      <h2 data-i18n="phpform_step2">2. The PHP that receives it (process.php)</h2>
+<pre><span class="kw">&lt;?php</span>
+  <span class="kw">if</span> ($_SERVER[<span class="str">"REQUEST_METHOD"</span>] == <span class="str">"POST"</span>) {
+    $name = $_POST[<span class="str">"name"</span>];
+    <span class="kw">echo</span> <span class="str">"Hello, $name!"</span>;
+  }
+<span class="kw">?&gt;</span></pre>
+
+      <table class="prop-table">
+        <tr><th data-i18n="th_part">Part</th><th data-i18n="th_use">What it does</th></tr>
+        <tr><td><code>method="POST"</code></td><td data-i18n="phpform_post">Sends data in the request body (hidden from URL).</td></tr>
+        <tr><td><code>method="GET"</code></td><td data-i18n="phpform_get">Sends data in the URL (visible, for searches).</td></tr>
+        <tr><td><code>$_POST["name"]</code></td><td data-i18n="phpform_postarr">Gets the value of the input called "name".</td></tr>
+        <tr><td><code>$_GET["q"]</code></td><td data-i18n="phpform_getarr">Gets the value sent by GET.</td></tr>
+        <tr><td><code>$_SERVER["REQUEST_METHOD"]</code></td><td data-i18n="phpform_method">Tells you if the form was submitted.</td></tr>
+      </table>
+    </section>
+
+    <!-- ============ BACKEND 4: MYSQL ============ -->
+    <section class="lesson" id="php-db">
+      <span class="badge php">BACKEND</span>
+      <h1 data-i18n="db_title">MySQL Database</h1>
+      <p data-i18n="db_intro">A database stores data permanently. MySQL is the most common with PHP.</p>
+
+      <h2 data-i18n="db_steps">Steps to connect</h2>
+      <ol>
+        <li data-i18n="db_s1">Open <code>http://localhost/phpmyadmin</code>.</li>
+        <li data-i18n="db_s2">Click <strong>New</strong> and create a database, e.g. <code>myschool</code>.</li>
+        <li data-i18n="db_s3">Create a table, e.g. <code>students</code>, with columns: <code>id</code> (INT, auto-increment), <code>name</code> (VARCHAR 100), <code>age</code> (INT).</li>
+        <li data-i18n="db_s4">In your PHP file, connect using the code below.</li>
+      </ol>
+
+      <h2 data-i18n="db_code">Connection Code</h2>
+<pre><span class="kw">&lt;?php</span>
+  $conn = <span class="kw">new</span> <span class="attr">mysqli</span>(
+    <span class="str">"localhost"</span>,   <span class="cmt">// server</span>
+    <span class="str">"root"</span>,        <span class="cmt">// username (XAMPP default)</span>
+    <span class="str">""</span>,            <span class="cmt">// password (XAMPP default: empty)</span>
+    <span class="str">"myschool"</span>     <span class="cmt">// database name</span>
+  );
+
+  <span class="kw">if</span> ($conn-&gt;connect_error) {
+    <span class="kw">die</span>(<span class="str">"Connection failed: "</span> . $conn-&gt;connect_error);
+  }
+  <span class="kw">echo</span> <span class="str">"Connected successfully!"</span>;
+<span class="kw">?&gt;</span></pre>
+
+      <table class="prop-table">
+        <tr><th data-i18n="th_part">Part</th><th data-i18n="th_use">What it does</th></tr>
+        <tr><td><code>new mysqli(...)</code></td><td data-i18n="db_new">Creates a connection to MySQL.</td></tr>
+        <tr><td><code>"localhost"</code></td><td data-i18n="db_host">The server (local XAMPP).</td></tr>
+        <tr><td><code>"root"</code></td><td data-i18n="db_user">The default XAMPP username.</td></tr>
+        <tr><td><code>connect_error</code></td><td data-i18n="db_err">Holds an error message if the connection failed.</td></tr>
+      </table>
+    </section>
+
+    <!-- ============ BACKEND 5: CRUD ============ -->
+    <section class="lesson" id="php-crud">
+      <span class="badge php">BACKEND</span>
+      <h1 data-i18n="crud_title">CRUD Example</h1>
+      <p data-i18n="crud_intro">CRUD = <strong>C</strong>reate, <strong>R</strong>ead, <strong>U</strong>pdate, <strong>D</strong>elete. These are the 4 operations on any database. This is the foundation of every web app.</p>
+
+      <h2 data-i18n="crud_insert">Create — Insert a row</h2>
+<pre><span class="kw">&lt;?php</span>
+  $sql = <span class="str">"INSERT INTO students (name, age) VALUES ('Maria', 25)"</span>;
+  <span class="kw">if</span> ($conn-&gt;query($sql) === <span class="kw">TRUE</span>) {
+    <span class="kw">echo</span> <span class="str">"New record created!"</span>;
+  }
+<span class="kw">?&gt;</span></pre>
+
+      <h2 data-i18n="crud_select">Read — Get rows</h2>
+<pre><span class="kw">&lt;?php</span>
+  $sql = <span class="str">"SELECT id, name, age FROM students"</span>;
+  $result = $conn-&gt;query($sql);
+
+  <span class="kw">while</span> ($row = $result-&gt;fetch_assoc()) {
+    <span class="kw">echo</span> $row[<span class="str">"id"</span>] . <span class="str">" - "</span> . $row[<span class="str">"name"</span>] . <span class="str">"&lt;br&gt;"</span>;
+  }
+<span class="kw">?&gt;</span></pre>
+
+      <h2 data-i18n="crud_update">Update — Change a row</h2>
+<pre><span class="kw">&lt;?php</span>
+  $sql = <span class="str">"UPDATE students SET age = 26 WHERE id = 1"</span>;
+  $conn-&gt;query($sql);
+<span class="kw">?&gt;</span></pre>
+
+      <h2 data-i18n="crud_delete">Delete — Remove a row</h2>
+<pre><span class="kw">&lt;?php</span>
+  $sql = <span class="str">"DELETE FROM students WHERE id = 1"</span>;
+  $conn-&gt;query($sql);
+<span class="kw">?&gt;</span></pre>
+
+      <div class="note">
+        <strong data-i18n="tip">💡 Tip:</strong>
+        <span data-i18n="crud_tip">Always use <strong>prepared statements</strong> when inserting user input (search "PHP prepared statements"). It prevents SQL injection — the #1 security issue for beginners.</span>
+      </div>
+
+      <h2 data-i18n="crud_next">What to Learn Next</h2>
+      <ul>
+        <li data-i18n="crud_n1"><strong>JavaScript</strong> — makes pages interactive.</li>
+        <li data-i18n="crud_n2"><strong>Prepared statements</strong> — for safe database queries.</li>
+        <li data-i18n="crud_n3"><strong>PDO</strong> — a more modern way to use MySQL in PHP.</li>
+        <li data-i18n="crud_n4"><strong>Sessions</strong> — for login systems.</li>
+        <li data-i18n="crud_n5"><strong>A framework</strong> — Laravel, React, or Next.js for real projects.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>
