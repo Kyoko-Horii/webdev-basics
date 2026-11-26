@@ -596,3 +596,69 @@ body.light-mode .lang-btn:hover {
 body.light-mode .lang-btn.active {
   color: #0b1220;
 }
+
+/* ============================================
+   EDITOR MAXIMIZE / FULLSCREEN
+   ============================================ */
+.editor-header .editor-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.max-btn {
+  background: var(--bg-alt);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  line-height: 1;
+}
+.max-btn:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+/* Maximized editor: fills the viewport */
+.editor.maximized {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  background: var(--card);
+  display: flex;
+  flex-direction: column;
+}
+.editor.maximized .editor-grid {
+  flex: 1;
+  min-height: 0;
+}
+.editor.maximized textarea,
+.editor.maximized iframe {
+  min-height: 0;
+  height: 100%;
+}
+.editor.maximized .editor-header {
+  padding: 0.75rem 1.25rem;
+}
+
+/* Body scroll lock when editor is maximized */
+body.editor-locked { overflow: hidden; }
+
+/* Bigger editor for the Palengke challenge */
+.editor.editor-lg .editor-grid { min-height: 520px; }
+.editor.editor-lg textarea,
+.editor.editor-lg iframe { min-height: 520px; }
+
+@media (max-width: 900px) {
+  .editor.editor-lg .editor-grid { min-height: 420px; }
+  .editor.editor-lg textarea,
+  .editor.editor-lg iframe { min-height: 420px; }
+}

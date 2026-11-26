@@ -76,8 +76,43 @@
       <a class="nav-link" onclick="showLesson('php-crud', this)">5. CRUD Example</a>
     </div>
 
+    <div class="nav-section">
+      <div class="nav-title">JAVASCRIPT</div>
+      <a class="nav-link" onclick="showLesson('js-intro', this)">1. Basics & Variables</a>
+      <a class="nav-link" onclick="showLesson('js-functions', this)">2. Functions & Arrays</a>
+      <a class="nav-link" onclick="showLesson('js-dom', this)">3. DOM & Selection</a>
+      <a class="nav-link" onclick="showLesson('js-events', this)">4. Events & Listeners</a>
+      <a class="nav-link" onclick="showLesson('js-combine', this)">5. Putting It Together</a>
+    </div>
+
+<div class="nav-section">
+  <div class="nav-title">CHALLENGES</div>
+
+  <div class="nav-subtitle" style="font-size:0.7rem;color:var(--text-dim);padding:0.25rem 0.75rem;text-transform:uppercase;letter-spacing:0.5px;">HTML</div>
+  <a class="nav-link" onclick="showLesson('ch-html-1', this)">1. Product Card</a>
+  <a class="nav-link" onclick="showLesson('ch-html-2', this)">2. Nav Menu</a>
+  <a class="nav-link" onclick="showLesson('ch-html-3', this)">3. Contact Form</a>
+  <br>
+
+  <div class="nav-subtitle" style="font-size:0.7rem;color:var(--text-dim);padding:0.5rem 0.75rem 0.25rem;text-transform:uppercase;letter-spacing:0.5px;">CSS</div>
+  <a class="nav-link" onclick="showLesson('ch-css-1', this)">4. Style the Card</a>
+  <a class="nav-link" onclick="showLesson('ch-css-2', this)">5. Flex Navbar</a>
+  <a class="nav-link" onclick="showLesson('ch-css-3', this)">6. Grid Gallery</a>
+  <br>
+
+  <div class="nav-subtitle" style="font-size:0.7rem;color:var(--text-dim);padding:0.5rem 0.75rem 0.25rem;text-transform:uppercase;letter-spacing:0.5px;">BACKEND</div>
+  <a class="nav-link" onclick="showLesson('ch-backend-1', this)">7. Cart Total (JS)</a>
+  <a class="nav-link" onclick="showLesson('ch-backend-2', this)">8. Form Handler (JS)</a>
+  <a class="nav-link" onclick="showLesson('ch-backend-3', this)">9. Add to Cart (JS)</a>
+  <a class="nav-link" onclick="showLesson('ch-backend-4', this)">10. Checkout (JS)</a>
+  <br>
+
+  <div class="nav-subtitle" style="font-size:0.7rem;color:var(--text-dim);padding:0.5rem 0.75rem 0.25rem;text-transform:uppercase;letter-spacing:0.5px;">FINAL</div>
+  <a class="nav-link" onclick="showLesson('ch-palengke', this)">🏆 Online Palengke</a>
+</div>
+
 <div class="sidebar-footer">
-  <p>Made by J.</p>
+  <p>Love, Jhelyn.</p>
 </div>
   </aside>
 
@@ -1531,6 +1566,1143 @@
         <li data-i18n="crud_n5"><strong>A framework</strong> — Laravel, React, or Next.js for real projects.</li>
       </ul>
     </section>
+
+    <!-- ============ CHALLENGE 1: HTML ============ -->
+<section class="lesson" id="ch-html">
+  <span class="badge html">CHALLENGE</span>
+  <h1>HTML Challenge</h1>
+  <p>Time to practice! Complete the code below to make a simple product card. Follow the instructions in the comments.</p>
+
+  <h2>Your Task</h2>
+  <ul>
+    <li>Add an <code>&lt;h2&gt;</code> with the product name "Fresh Mango"</li>
+    <li>Add a <code>&lt;p&gt;</code> with the price "₱120 per kilo"</li>
+    <li>Add an <code>&lt;img&gt;</code> with <code>src="mango.jpg"</code> and <code>alt="Fresh mango"</code></li>
+    <li>Add a <code>&lt;button&gt;</code> that says "Add to Cart"</li>
+  </ul>
+
+  <div class="editor">
+    <div class="editor-header">
+      <strong>🧪 Complete the code!</strong>
+      <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><!-- TODO: Add an h2 with "Fresh Mango" -->
+
+
+<!-- TODO: Add a p with "₱120 per kilo" -->
+
+
+<!-- TODO: Add an img with src="mango.jpg" alt="Fresh mango" -->
+
+
+<!-- TODO: Add a button that says "Add to Cart" -->
+
+
+</textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>💡 Goal:</strong>
+    <span>Once your preview shows a title, price, image, and button — you're done! Click "Run" to check.</span>
+  </div>
+</section>
+
+<!-- ============ CHALLENGE 2: CSS ============ -->
+<section class="lesson" id="ch-css">
+  <span class="badge css">CHALLENGE</span>
+  <h1>CSS Challenge</h1>
+  <p>Style the product card! Use the CSS properties you learned to make it look clean.</p>
+
+  <h2>Your Task</h2>
+  <ul>
+    <li>Give <code>.card</code> a <code>border: 2px solid #333</code>, <code>padding: 16px</code>, and <code>border-radius: 10px</code></li>
+    <li>Make the <code>.card h2</code> color <code>darkgreen</code></li>
+    <li>Center the text inside the <code>.card</code></li>
+  </ul>
+
+  <div class="editor">
+    <div class="editor-header">
+      <strong>🧪 Complete the CSS!</strong>
+      <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><style>
+  .card {
+    /* TODO: border: 2px solid #333; */
+    /* TODO: padding: 16px; */
+    /* TODO: border-radius: 10px; */
+    /* TODO: text-align: center; */
+    width: 220px;
+    background: #f9f9f9;
+  }
+  .card h2 {
+    /* TODO: color: darkgreen; */
+  }
+  .card button {
+    background: green;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+</style>
+
+<div class="card">
+  <h2>Fresh Mango</h2>
+  <p>₱120 per kilo</p>
+  <button>Add to Cart</button>
+</div></textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHALLENGE 3: BACKEND ============ -->
+<section class="lesson" id="ch-backend">
+  <span class="badge php">CHALLENGE</span>
+  <h1>Backend Challenge</h1>
+  <p>Practice PHP logic. Complete the function so it returns the total price of items in a cart.</p>
+
+  <h2>Your Task</h2>
+  <ul>
+    <li>Inside the loop, add each <code>$item["price"]</code> to <code>$total</code></li>
+    <li>Return <code>$total</code> at the end of the function</li>
+  </ul>
+
+  <div class="note">
+    <strong>📌 Note:</strong>
+    <span>PHP can't run in the browser preview. Read the code carefully and write the correct logic. This is how you'll handle cart totals in the Online Palengke challenge.</span>
+  </div>
+
+  <pre><span class="kw">&lt;?php</span>
+<span class="kw">function</span> <span class="attr">cartTotal</span>($items) {
+  $total = <span class="str">0</span>;
+  <span class="kw">foreach</span> ($items <span class="kw">as</span> $item) {
+    <span class="cmt">// TODO: add $item["price"] to $total</span>
+
+  }
+  <span class="cmt">// TODO: return $total</span>
+
+}
+
+$cart = [
+  [<span class="str">"name"</span> =&gt; <span class="str">"Mango"</span>, <span class="str">"price"</span> =&gt; <span class="str">120</span>],
+  [<span class="str">"name"</span> =&gt; <span class="str">"Banana"</span>, <span class="str">"price"</span> =&gt; <span class="str">60</span>],
+];
+<span class="kw">echo</span> cartTotal($cart); <span class="cmt">// should print 180</span>
+<span class="kw">?&gt;</span></pre>
+
+  <div class="note">
+    <strong>✅ Answer:</strong>
+    <span>Use <code>$total += $item["price"];</code> inside the loop, and <code>return $total;</code> at the end.</span>
+  </div>
+</section>
+
+
+<!-- ============ FINAL CHALLENGE: ONLINE PALENGKE ============ -->
+<section class="lesson" id="ch-palengke">
+  <span class="badge">FINAL CHALLENGE</span>
+  <h1>🏆 Build the Online Palengke</h1>
+  <p>You made it! Combine everything you learned — HTML, CSS, and JavaScript — to build a simple <strong>Online Palengke</strong>. Complete the missing parts below and make your website interactive!</p>
+
+  <h2>What You're Building</h2>
+  <ul>
+    <li>A <strong>header</strong> with the palengke title and a cart display</li>
+    <li>A <strong>navigation</strong> bar for the palengke sections</li>
+    <li><strong>Products</strong>: product cards with names, prices, and "Add to Cart" buttons</li>
+    <li>An <strong>About</strong> section describing your Online Palengke</li>
+    <li>A <strong>View Cart</strong> button</li>
+    <li>A <strong>footer</strong> with your name</li>
+    <li><strong>JavaScript functionality</strong>: update the cart counter and show an alert whenever a product is added</li>
+  </ul>
+
+  <div class="note">
+    <strong>💡 Tip:</strong>
+    <span>Click <strong>⛶ Maximize</strong> to give yourself the full screen while coding. Press <strong>Esc</strong> to close.</span>
+  </div>
+
+  <div class="editor editor-lg">
+    <div class="editor-header">
+      <strong>🏆 Complete the Online Palengke!</strong>
+      <div class="editor-actions">
+        <button class="max-btn" onclick="toggleMaximize(this)">⛶ Maximize</button>
+        <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+      </div>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+  body { background: #f4f8f4; color: #1e293b; }
+
+  /* HEADER */
+  header {
+    background: #2e7d32; color: white;
+    padding: 16px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  header h1 { font-size: 24px; }
+  .cart-display {
+    background: #fff; color: #2e7d32;
+    padding: 8px 14px; border-radius: 20px; font-weight: bold;
+    /* TODO: make it a flex row with gap 6px */
+  }
+
+  /* NAV */
+  nav {
+    background: #1b5e20; padding: 10px 24px;
+    display: flex; gap: 20px;
+  }
+  nav a { color: white; text-decoration: none; font-weight: 600; }
+  nav a:hover { text-decoration: underline; }
+
+  /* CONTENT */
+  main { padding: 24px; }
+  .section-title { color: #2e7d32; margin-bottom: 16px; }
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px; margin-bottom: 40px;
+  }
+  .product {
+    background: white;
+    border: 1px solid #c8e6c9;
+    border-radius: 10px; padding: 16px; text-align: center;
+    /* TODO: add box-shadow: 0 2px 6px rgba(0,0,0,0.08); */
+  }
+  .product h3 { color: #1b5e20; margin-bottom: 6px; }
+  .product .price { color: #d84315; font-weight: bold; margin-bottom: 10px; }
+  .product button {
+    background: #2e7d32; color: white; border: none;
+    padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: 600;
+    /* TODO: add width: 100%; */
+  }
+  .product button:hover { background: #1b5e20; }
+
+  .about {
+    background: white; border-left: 5px solid #2e7d32;
+    padding: 16px 20px; border-radius: 8px; margin-bottom: 24px;
+  }
+
+  .view-cart-btn {
+    display: inline-block; background: #d84315; color: white;
+    padding: 12px 20px; border-radius: 8px;
+    text-decoration: none; font-weight: bold;
+    /* TODO: add cursor: pointer; */
+  }
+
+  /* FOOTER */
+  footer {
+    background: #1b5e20; color: white;
+    text-align: center; padding: 16px;
+    /* TODO: add margin-top: 40px; */
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <!-- TODO: Add an h1 that says "Online Palengke" -->
+
+
+  <div class="cart-display">
+    🛒 Cart: <span id="cartCount">0</span>
+  </div>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+  <!-- TODO: Add 4 links: Home, Products, About, Cart -->
+
+
+
+
+</nav>
+
+<!-- CONTENT -->
+<main>
+  <h2 class="section-title">Fresh Products</h2>
+
+  <div class="products">
+    <!-- TODO: Add a product card for Mango (₱120) -->
+    <div class="product">
+
+    </div>
+
+    <!-- TODO: Add a product card for Banana (₱60) -->
+    <div class="product">
+
+    </div>
+
+    <!-- TODO: Add one more product of your choice -->
+    <div class="product">
+
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <!-- TODO: Add an h2 "About the Online Palengke" -->
+
+    <!-- TODO: Add a p describing the palengke -->
+
+  </section>
+
+  <!-- VIEW CART -->
+  <!-- TODO: Add a button/link with class "view-cart-btn" that says "View Cart" -->
+
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <!-- TODO: Add a p with "© 2025 Online Palengke. Made by [Your Name]" -->
+
+</footer>
+
+<script>
+  let count = 0;
+  const cartCount = document.getElementById("cartCount");
+
+  // TODO: Attach click listeners to all "Add to Cart" buttons
+  // When clicked:
+  // 1. Increment count
+  // 2. Update cartCount.textContent
+  // 3. Show an alert: "Product successfully added to cart!"
+
+  document.querySelectorAll(".product button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      // TODO: increment count
+
+      // TODO: update the cart display
+
+      // TODO: show a success alert
+
+    });
+  });
+</script>
+
+</body>
+</html></textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>🎯 Goal:</strong>
+    <span>Click "Run" — your Online Palengke should display a green header with a cart counter, a navigation bar, three product cards with prices and working "Add to Cart" buttons, an About section, a View Cart button, and a footer. When a customer clicks "Add to Cart", the cart count should increase and a success alert should appear.</span>
+  </div>
+
+  <h2>Bonus Challenge: Improve Your Online Palengke</h2>
+  <p>Want to make your website even better? Try these additional tasks using HTML, CSS, and JavaScript:</p>
+
+  <ul>
+    <li>Change the success alert to display the name of the product added.</li>
+    <li>Add more fruits and vegetables to your product list.</li>
+    <li>Make the website responsive on mobile devices.</li>
+    <li>Display a message when the cart is empty.</li>
+    <li>Calculate the total price of the products added to the cart.</li>
+  </ul>
+
+  <div class="note">
+    <strong>🌟 Remember:</strong>
+    <span>You don't need PHP or a database for this challenge. Your goal is to practice building an interactive frontend website using HTML, CSS, and JavaScript.</span>
+  </div>
+</section>
+
+
+<section class="lesson" id="js-intro">
+  <span class="badge php">JS</span>
+  <h1>JS 1 — Basics & Variables</h1>
+  <p>JavaScript (JS) runs in the browser and makes your page <strong>interactive</strong>. Variables store data so your code can use it later.</p>
+
+<pre><span class="tag">&lt;script&gt;</span>
+  <span class="kw">let</span> count = <span class="str">0</span>;              <span class="cmt">// number — changes later</span>
+  <span class="kw">const</span> shopName = <span class="str">"Palengke"</span>; <span class="cmt">// string — fixed</span>
+  <span class="kw">let</span> isOpen = <span class="kw">true</span>;           <span class="cmt">// boolean</span>
+
+  console.log(<span class="str">"Welcome to "</span> + shopName);
+<span class="tag">&lt;/script&gt;</span></pre>
+
+  <table class="prop-table">
+    <tr><th>Keyword / Type</th><th>What it does</th></tr>
+    <tr><td><code>let</code></td><td>A variable you can change later.</td></tr>
+    <tr><td><code>const</code></td><td>A variable that can't be reassigned.</td></tr>
+    <tr><td>Number</td><td><code>120</code>, <code>3.5</code></td></tr>
+    <tr><td>String</td><td><code>"Hello"</code></td></tr>
+    <tr><td>Boolean</td><td><code>true</code> / <code>false</code></td></tr>
+    <tr><td><code>console.log()</code></td><td>Prints to the console (press F12).</td></tr>
+  </table>
+
+  <div class="editor">
+    <div class="editor-header">
+      <strong>🧪 Practice: variables</strong>
+      <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><h2 id="out">Result…</h2>
+<script>
+  (function() {
+    let shopName = "Palengke";
+    let count = 5;
+
+    document.getElementById("out").textContent =
+      "Welcome to " + shopName + "! Items: " + count;
+      
+    // Try changing shopName and count, then click Run.
+  })();
+</script></textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="lesson" id="js-functions">
+  <span class="badge php">JS</span>
+  <h1>JS 2 — Functions & Arrays</h1>
+  <p>A <strong>function</strong> groups reusable logic. An <strong>array</strong> holds a list. <code>forEach</code> loops over every item in an array.</p>
+
+<pre><span class="kw">function</span> cartTotal(items) {
+  <span class="kw">let</span> total = <span class="str">0</span>;
+  items.forEach(item =&gt; {
+    total += item.price;      <span class="cmt">// add each price</span>
+  });
+  <span class="kw">return</span> total;              <span class="cmt">// hand the sum back</span>
+}
+
+<span class="kw">const</span> cart = [
+  { name: <span class="str">"Mango"</span>, price: <span class="str">120</span> },
+  { name: <span class="str">"Banana"</span>, price: <span class="str">60</span> },
+];
+
+console.log(cartTotal(cart)); <span class="cmt">// 180</span></pre>
+
+  <table class="prop-table">
+    <tr><th>Part</th><th>What it does</th></tr>
+    <tr><td><code>function name() {}</code></td><td>Defines a reusable block.</td></tr>
+    <tr><td><code>return</code></td><td>Sends a value back to the caller.</td></tr>
+    <tr><td><code>[]</code></td><td>An array (list of items).</td></tr>
+    <tr><td><code>.forEach()</code></td><td>Loops over every item in an array.</td></tr>
+    <tr><td><code>+=</code></td><td>Adds to the current value.</td></tr>
+  </table>
+
+  <div class="editor">
+    <div class="editor-header">
+      <strong>🧪 Practice: functions & arrays</strong>
+      <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><h2 id="out">Result…</h2>
+<script>
+  (function() {
+    function cartTotal(items) {
+      let total = 0;
+      items.forEach(item => {
+        total += item.price;
+      });
+      return total;
+    }
+
+    const cart = [
+      { name: "Mango", price: 120 },
+      { name: "Banana", price: 60 },
+      { name: "Papaya", price: 80 },
+    ];
+
+    document.getElementById("out").textContent = "Total: " + cartTotal(cart);
+  })();
+</script></textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="lesson" id="js-dom">
+  <span class="badge php">JS</span>
+  <h1>JS 3 — DOM & Selection</h1>
+  <p>The <strong>DOM</strong> is the browser's model of your HTML. Before JS can change a page, it must <strong>find</strong> the element — that's selection.</p>
+
+<pre><span class="cmt">// Select ONE element by id</span>
+<span class="kw">const</span> msg = document.getElementById(<span class="str">"msg"</span>);
+
+<span class="cmt">// Select by CSS selector (first match)</span>
+<span class="kw">const</span> firstP = document.querySelector(<span class="str">".card p"</span>);
+
+<span class="cmt">// Select ALL matches (loopable list)</span>
+<span class="kw">const</span> allBtns = document.querySelectorAll(<span class="str">".product button"</span>);
+
+<span class="cmt">// Read / write text inside an element</span>
+msg.textContent = <span class="str">"Hello!"</span>;
+<span class="kw">const</span> typed = document.getElementById(<span class="str">"name"</span>).value; <span class="cmt">// read an input</span></pre>
+
+  <table class="prop-table">
+    <tr><th>Method</th><th>What it does</th></tr>
+    <tr><td><code>getElementById("x")</code></td><td>Finds the element with <code>id="x"</code>.</td></tr>
+    <tr><td><code>querySelector(".x")</code></td><td>First element matching a CSS selector.</td></tr>
+    <tr><td><code>querySelectorAll(".x")</code></td><td>All matches (loopable).</td></tr>
+    <tr><td><code>.textContent</code></td><td>Reads/sets text.</td></tr>
+    <tr><td><code>.value</code></td><td>Reads what the user typed in an input.</td></tr>
+  </table>
+
+  <div class="editor">
+    <div class="editor-header">
+      <strong>🧪 Practice: selecting & changing</strong>
+      <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><h2 id="title">Old title</h2>
+<p class="note">This paragraph has class "note".</p>
+<input type="text" id="name" value="Maria">
+
+<script>
+  (function() {
+    const title = document.getElementById("title");
+    const note = document.querySelector(".note");
+    const nameInput = document.getElementById("name");
+
+    title.textContent = "New title!";
+    note.textContent = "Hello, " + nameInput.value + "!";
+  })();
+</script></textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="lesson" id="js-events">
+  <span class="badge php">JS</span>
+  <h1>JS 4 — Events & Listeners</h1>
+  <p>An <strong>event</strong> is something the user does — click, type, submit. <code>addEventListener</code> lets your code react to it.</p>
+
+<pre><span class="kw">const</span> btn = document.getElementById(<span class="str">"myBtn"</span>);
+
+btn.addEventListener(<span class="str">"click"</span>, () =&gt; {
+  alert(<span class="str">"You clicked me!"</span>);
+});
+
+<span class="cmt">// Loop over many buttons</span>
+document.querySelectorAll(<span class="str">".product button"</span>).forEach(btn =&gt; {
+  btn.addEventListener(<span class="str">"click"</span>, () =&gt; {
+    count++;                       <span class="cmt">// change a variable</span>
+    cartCount.textContent = count; <span class="cmt">// update the page</span>
+  });
+});</pre>
+
+  <table class="prop-table">
+    <tr><th>Event</th><th>Fires when…</th></tr>
+    <tr><td><code>click</code></td><td>The element is clicked.</td></tr>
+    <tr><td><code>input</code></td><td>The user types in a field.</td></tr>
+    <tr><td><code>submit</code></td><td>A form is submitted.</td></tr>
+    <tr><td><code>change</code></td><td>A dropdown/checkbox changes.</td></tr>
+  </table>
+
+  <div class="editor">
+    <div class="editor-header">
+      <strong>🧪 Practice: click events</strong>
+      <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><p>Cart: <span id="cartCount">0</span></p>
+
+<button id="addBtn">Add to Cart</button>
+
+<script>
+  (function() {
+    let count = 0;
+    const cartCount = document.getElementById("cartCount");
+    const addBtn = document.getElementById("addBtn");
+
+    addBtn.addEventListener("click", () => {
+      count++;
+      cartCount.textContent = count;
+    });
+  })();
+</script></textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="lesson" id="js-combine">
+  <span class="badge php">JS</span>
+  <h1>JS 5 — Putting It Together</h1>
+  <p>Real apps combine everything: <strong>functions</strong> (JS 2) + <strong>DOM</strong> (JS 3) + <strong>events</strong> (JS 4).</p>
+
+<pre><span class="kw">const</span> cart = [
+  { name: <span class="str">"Mango"</span>, price: <span class="str">120</span> },
+  { name: <span class="str">"Banana"</span>, price: <span class="str">60</span> },
+];
+
+<span class="cmt">// Function (JS 2)</span>
+<span class="kw">function</span> cartTotal(items) {
+  <span class="kw">let</span> total = <span class="str">0</span>;
+  items.forEach(item =&gt; { total += item.price; });
+  <span class="kw">return</span> total;
+}
+
+<span class="cmt">// DOM selection (JS 3)</span>
+<span class="kw">const</span> checkoutBtn = document.getElementById(<span class="str">"checkout"</span>);
+
+<span class="cmt">// Event listener (JS 4) + function call</span>
+checkoutBtn.addEventListener(<span class="str">"click"</span>, () =&gt; {
+  alert(<span class="str">"Total: ₱"</span> + cartTotal(cart));  <span class="cmt">// Total: ₱180</span>
+});</pre>
+
+  <div class="editor">
+    <div class="editor-header">
+      <strong>🧪 Practice: full example</strong>
+      <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><button id="checkout">Checkout</button>
+<p id="out"></p>
+
+<script>
+  (function() {
+    const cart = [
+      { name: "Mango", price: 120 },
+      { name: "Banana", price: 60 },
+    ];
+
+    function cartTotal(items) {
+      let total = 0;
+      items.forEach(item => {
+        total += item.price;
+      });
+      return total;
+    }
+
+    const checkoutBtn = document.getElementById("checkout");
+
+    checkoutBtn.addEventListener("click", () => {
+      document.getElementById("out").textContent = "Total: ₱" + cartTotal(cart);
+    });
+  })();
+</script></textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ HTML CHALLENGE 1: PRODUCT CARD ============ -->
+<section class="lesson" id="ch-html-1">
+  <span class="badge html">CHALLENGE</span>
+  <h1>HTML Challenge 1 — Product Card</h1>
+  <p>Build a simple product card. Follow the TODO comments in the editor.</p>
+
+  <h2>Your Task</h2>
+  <ul>
+    <li>Add an <code>&lt;h2&gt;</code> with "Fresh Mango"</li>
+    <li>Add a <code>&lt;p&gt;</code> with "₱120 per kilo"</li>
+    <li>Add an <code>&lt;img&gt;</code> with <code>src="mango.jpg"</code> and <code>alt="Fresh mango"</code></li>
+    <li>Add a <code>&lt;button&gt;</code> that says "Add to Cart"</li>
+  </ul>
+
+  <div class="editor">
+    <div class="editor-header">
+      <strong>🧪 Complete the code!</strong>
+      <div class="editor-actions">
+        <button class="max-btn" onclick="toggleMaximize(this)">⛶ Maximize</button>
+        <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+      </div>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><div class="product-card">
+  <!-- TODO: h2 "Fresh Mango" -->
+
+  <!-- TODO: p "₱120 per kilo" -->
+
+  <!-- TODO: img src="mango.jpg" alt="Fresh mango" -->
+
+  <!-- TODO: button "Add to Cart" -->
+
+</div></textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HTML CHALLENGE 2: NAV MENU ============ -->
+<section class="lesson" id="ch-html-2">
+  <span class="badge html">CHALLENGE</span>
+  <h1>HTML Challenge 2 — Nav Menu</h1>
+  <p>Build a navigation bar using semantic tags.</p>
+
+  <h2>Your Task</h2>
+  <ul>
+    <li>Create a <code>&lt;nav&gt;</code> element</li>
+    <li>Inside, add 4 <code>&lt;a&gt;</code> links: Home, Products, About, Contact</li>
+    <li>Use <code>href="#"</code> for each link (placeholder)</li>
+  </ul>
+
+  <div class="editor">
+    <div class="editor-header">
+      <strong>🧪 Complete the code!</strong>
+      <div class="editor-actions">
+        <button class="max-btn" onclick="toggleMaximize(this)">⛶ Maximize</button>
+        <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+      </div>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><header>
+  <h1>My Palengke</h1>
+  <!-- TODO: add a <nav> with 4 links: Home, Products, About, Contact -->
+  
+
+</header></textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HTML CHALLENGE 3: CONTACT FORM ============ -->
+<section class="lesson" id="ch-html-3">
+  <span class="badge html">CHALLENGE</span>
+  <h1>HTML Challenge 3 — Contact Form</h1>
+  <p>Build a contact form with the correct input types.</p>
+
+  <h2>Your Task</h2>
+  <ul>
+    <li>Add a <code>&lt;form&gt;</code> with <code>method="POST"</code></li>
+    <li>Add a text input for name (with a <code>&lt;label&gt;</code>)</li>
+    <li>Add an email input (with a <code>&lt;label&gt;</code>)</li>
+    <li>Add a <code>&lt;textarea&gt;</code> for the message</li>
+    <li>Add a submit <code>&lt;button&gt;</code></li>
+  </ul>
+
+  <div class="editor">
+    <div class="editor-header">
+      <strong>🧪 Complete the code!</strong>
+      <div class="editor-actions">
+        <button class="max-btn" onclick="toggleMaximize(this)">⛶ Maximize</button>
+        <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+      </div>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><h2>Contact Us</h2>
+<!-- TODO: form with method="POST" -->
+<form>
+  <!-- TODO: label + text input for name -->
+  
+
+  <!-- TODO: label + email input for email -->
+  
+
+  <!-- TODO: textarea for message -->
+  
+
+  <!-- TODO: submit button -->
+  
+</form></textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CSS CHALLENGE 1: STYLE THE CARD ============ -->
+<section class="lesson" id="ch-css-1">
+  <span class="badge css">CHALLENGE</span>
+  <h1>CSS Challenge 1 — Style the Card</h1>
+  <p>Make the product card look clean using the box model.</p>
+
+  <h2>Your Task</h2>
+  <ul>
+    <li><code>.card</code>: add <code>border: 2px solid #333</code>, <code>padding: 16px</code>, <code>border-radius: 10px</code>, <code>text-align: center</code></li>
+    <li><code>.card h2</code>: color <code>darkgreen</code></li>
+  </ul>
+
+  <div class="editor">
+    <div class="editor-header">
+      <strong>🧪 Complete the CSS!</strong>
+      <div class="editor-actions">
+        <button class="max-btn" onclick="toggleMaximize(this)">⛶ Maximize</button>
+        <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+      </div>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><style>
+  .card {
+    /* TODO: border: 2px solid #333; */
+    /* TODO: padding: 16px; */
+    /* TODO: border-radius: 10px; */
+    /* TODO: text-align: center; */
+    width: 220px;
+    background: #f9f9f9;
+  }
+  .card h2 {
+    /* TODO: color: darkgreen; */
+  }
+  .card button {
+    background: green; color: white; border: none;
+    padding: 8px 16px; border-radius: 6px; cursor: pointer;
+  }
+</style>
+
+<div class="card">
+  <h2>Fresh Mango</h2>
+  <p>₱120 per kilo</p>
+  <button>Add to Cart</button>
+</div></textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CSS CHALLENGE 2: FLEX NAVBAR ============ -->
+<section class="lesson" id="ch-css-2">
+  <span class="badge css">CHALLENGE</span>
+  <h1>CSS Challenge 2 — Flex Navbar</h1>
+  <p>Use Flexbox to lay out a header with a title on the left and links on the right.</p>
+
+  <h2>Your Task</h2>
+  <ul>
+    <li>On <code>.navbar</code>: <code>display: flex</code>, <code>justify-content: space-between</code>, <code>align-items: center</code></li>
+    <li>On <code>.nav-links</code>: <code>display: flex</code>, <code>gap: 16px</code></li>
+    <li>Remove the bullet points with <code>list-style: none</code></li>
+  </ul>
+
+  <div class="editor">
+    <div class="editor-header">
+      <strong>🧪 Complete the CSS!</strong>
+      <div class="editor-actions">
+        <button class="max-btn" onclick="toggleMaximize(this)">⛶ Maximize</button>
+        <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+      </div>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><style>
+  .navbar {
+    background: #2e7d32; color: white; padding: 12px 20px;
+    /* TODO: display: flex; */
+    /* TODO: justify-content: space-between; */
+    /* TODO: align-items: center; */
+  }
+  .nav-links {
+    /* TODO: display: flex; */
+    /* TODO: gap: 16px; */
+    /* TODO: list-style: none; */
+  }
+  .nav-links a { color: white; text-decoration: none; }
+</style>
+
+<div class="navbar">
+  <h2>Palengke</h2>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Products</a></li>
+    <li><a href="#">Cart</a></li>
+  </ul>
+</div></textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CSS CHALLENGE 3: GRID GALLERY ============ -->
+<section class="lesson" id="ch-css-3">
+  <span class="badge css">CHALLENGE</span>
+  <h1>CSS Challenge 3 — Grid Gallery</h1>
+  <p>Turn a list of boxes into a 3-column gallery using CSS Grid.</p>
+
+  <h2>Your Task</h2>
+  <ul>
+    <li>On <code>.gallery</code>: <code>display: grid</code></li>
+    <li>Add <code>grid-template-columns: repeat(3, 1fr)</code></li>
+    <li>Add <code>gap: 12px</code></li>
+  </ul>
+
+  <div class="editor">
+    <div class="editor-header">
+      <strong>🧪 Complete the CSS!</strong>
+      <div class="editor-actions">
+        <button class="max-btn" onclick="toggleMaximize(this)">⛶ Maximize</button>
+        <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+      </div>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><style>
+  .gallery {
+    /* TODO: display: grid; */
+    /* TODO: grid-template-columns: repeat(3, 1fr); */
+    /* TODO: gap: 12px; */
+  }
+  .tile {
+    background: #2e7d32; color: white;
+    padding: 30px; text-align: center; border-radius: 8px;
+  }
+</style>
+
+<div class="gallery">
+  <div class="tile">1</div>
+  <div class="tile">2</div>
+  <div class="tile">3</div>
+  <div class="tile">4</div>
+  <div class="tile">5</div>
+  <div class="tile">6</div>
+</div></textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BACKEND CHALLENGE 1: CART TOTAL (JS) ============ -->
+<section class="lesson" id="ch-backend-1">
+  <span class="badge php">CHALLENGE</span>
+  <h1>Backend Challenge 1 — Cart Total</h1>
+  <p>Complete the JavaScript function so it returns the total price of a cart, then show it with an <code>alert()</code>.</p>
+
+  <h2>Your Task</h2>
+  <ul>
+    <li>Inside the loop, add each <code>item.price</code> to <code>total</code></li>
+    <li>Return <code>total</code> at the end</li>
+    <li>Call <code>cartTotal(cart)</code> and show the result with <code>alert()</code></li>
+  </ul>
+
+  <div class="note">
+    <strong>💡 Hint:</strong>
+    <span>To add a price: <code>total = total + item.price;</code></span>
+  </div>
+
+  <div class="editor">
+    <div class="editor-header">
+      <strong>🧪 Complete the code!</strong>
+      <div class="editor-actions">
+        <button class="max-btn" onclick="toggleMaximize(this)">⛶ Maximize</button>
+        <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+      </div>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><h3>Cart Total</h3>
+<p>Click Run to see the alert.</p>
+
+<script>
+  function cartTotal(items) {
+    let total = 0;
+
+    items.forEach(function(item) {
+      // TODO: add item.price to total
+
+    });
+
+    // TODO: return total
+
+  }
+
+  const cart = [
+    { name: "Mango", price: 120 },
+    { name: "Banana", price: 60 }
+  ];
+
+  // TODO: call cartTotal(cart) and alert the answer
+  // It should show "Total: 180"
+
+<\/script></textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>✅ Answer:</strong>
+    <span>
+      Inside the loop: <code>total = total + item.price;</code><br>
+      After the loop: <code>return total;</code><br>
+      At the bottom: <code>alert("Total: " + cartTotal(cart));</code>
+    </span>
+  </div>
+</section>
+
+<!-- ============ BACKEND CHALLENGE 2: FORM HANDLER (JS) ============ -->
+<section class="lesson" id="ch-backend-2">
+  <span class="badge php">CHALLENGE</span>
+  <h1>Backend Challenge 2 — Form Handler</h1>
+  <p>Write a JavaScript function that greets a user by name, and shows the greeting with an <code>alert()</code>.</p>
+
+  <h2>Your Task</h2>
+  <ul>
+    <li>Inside <code>greetUser(name)</code>, check if <code>name</code> is empty</li>
+    <li>If empty, <code>alert("No name received.")</code></li>
+    <li>Otherwise, <code>alert("Hello, " + name + "!")</code></li>
+    <li>Call <code>greetUser("Maria")</code> and <code>greetUser("")</code></li>
+  </ul>
+
+  <div class="note">
+    <strong>💡 Hint:</strong>
+    <span>Check for an empty name with <code>if (name === "")</code>.</span>
+  </div>
+
+  <div class="editor">
+    <div class="editor-header">
+      <strong>🧪 Complete the code!</strong>
+      <div class="editor-actions">
+        <button class="max-btn" onclick="toggleMaximize(this)">⛶ Maximize</button>
+        <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+      </div>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><h3>Form Handler</h3>
+<p>Click Run to see two alerts.</p>
+
+<script>
+  function greetUser(name) {
+    // TODO: if name is empty, alert "No name received."
+
+    // TODO: otherwise alert "Hello, " + name + "!"
+
+  }
+
+  // TODO: call greetUser("Maria")
+  // TODO: call greetUser("")
+
+<\/script></textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>✅ Answer:</strong>
+    <span>
+      Inside the function:<br>
+      <code>if (name === "") { alert("No name received."); } else { alert("Hello, " + name + "!"); }</code><br>
+      At the bottom:<br>
+      <code>greetUser("Maria");</code><br>
+      <code>greetUser("");</code>
+    </span>
+  </div>
+</section>
+
+<!-- ============ BACKEND CHALLENGE 3: ADD TO CART (JS) ============ -->
+<section class="lesson" id="ch-backend-3">
+  <span class="badge php">CHALLENGE</span>
+  <h1>Backend Challenge 3 — Add to Cart</h1>
+  <p>Write a JavaScript function that adds a product to the cart and shows a success message with <code>alert()</code>.</p>
+
+  <h2>Your Task</h2>
+  <ul>
+    <li>Inside <code>addToCart(product)</code>, increase <code>cartCount</code> by 1</li>
+    <li>Show <code>alert(product + " added to cart successfully!")</code></li>
+    <li>Update the cart number on the page using <code>document.getElementById("cartCount")</code></li>
+    <li>Call <code>addToCart("Mango")</code> and <code>addToCart("Banana")</code></li>
+  </ul>
+
+  <div class="note">
+    <strong>💡 Hint:</strong>
+    <span>To increase a number: <code>cartCount = cartCount + 1;</code><br>
+    To change text on the page: <code>document.getElementById("cartCount").textContent = cartCount;</code></span>
+  </div>
+
+  <div class="editor">
+    <div class="editor-header">
+      <strong>🧪 Complete the code!</strong>
+      <div class="editor-actions">
+        <button class="max-btn" onclick="toggleMaximize(this)">⛶ Maximize</button>
+        <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+      </div>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><h3>My Cart: <span id="cartCount">0</span></h3>
+<p>Click Run to add items and see the alerts.</p>
+
+<script>
+  let cartCount = 0;
+
+  function addToCart(product) {
+    // TODO: increase cartCount by 1
+
+    // TODO: show alert(product + " added to cart successfully!")
+
+    // TODO: update the page with the new cartCount
+
+  }
+
+  // TODO: call addToCart("Mango")
+  // TODO: call addToCart("Banana")
+
+<\/script></textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>✅ Answer:</strong>
+    <span>
+      Inside the function:<br>
+      <code>cartCount = cartCount + 1;</code><br>
+      <code>alert(product + " added to cart successfully!");</code><br>
+      <code>document.getElementById("cartCount").textContent = cartCount;</code><br>
+      At the bottom:<br>
+      <code>addToCart("Mango");</code><br>
+      <code>addToCart("Banana");</code>
+    </span>
+  </div>
+</section>
+
+<!-- ============ BACKEND CHALLENGE 4: CHECKOUT (JS) ============ -->
+<section class="lesson" id="ch-backend-4">
+  <span class="badge php">CHALLENGE</span>
+  <h1>Backend Challenge 4 — Checkout Message</h1>
+  <p>Write a JavaScript function that checks out a cart. If the cart is empty, warn the user. If not, thank them and clear the cart.</p>
+
+  <h2>Your Task</h2>
+  <ul>
+    <li>Inside <code>checkout(cartCount)</code>, check if <code>cartCount === 0</code></li>
+    <li>If empty, <code>alert("Your cart is empty. Add items first!")</code></li>
+    <li>Otherwise, <code>alert("Thank you! Your order of " + cartCount + " item(s) is placed.")</code></li>
+    <li>Call <code>checkout(0)</code> and <code>checkout(3)</code></li>
+  </ul>
+
+  <div class="note">
+    <strong>💡 Hint:</strong>
+    <span>Use <code>if (cartCount === 0) { ... } else { ... }</code> to choose which message to show.</span>
+  </div>
+
+  <div class="editor">
+    <div class="editor-header">
+      <strong>🧪 Complete the code!</strong>
+      <div class="editor-actions">
+        <button class="max-btn" onclick="toggleMaximize(this)">⛶ Maximize</button>
+        <button class="run-btn" onclick="runCode(this)">▶ Run</button>
+      </div>
+    </div>
+    <div class="editor-grid">
+      <textarea spellcheck="false"><h3>Checkout</h3>
+<p>Click Run to test both cases.</p>
+
+<script>
+  function checkout(cartCount) {
+    // TODO: if cartCount is 0, alert "Your cart is empty. Add items first!"
+
+    // TODO: otherwise, alert "Thank you! Your order of " + cartCount + " item(s) is placed."
+
+  }
+
+  // TODO: call checkout(0)
+  // TODO: call checkout(3)
+
+<\/script></textarea>
+      <iframe title="preview"></iframe>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>✅ Answer:</strong>
+    <span>
+      Inside the function:<br>
+      <code>if (cartCount === 0) { alert("Your cart is empty. Add items first!"); } else { alert("Thank you! Your order of " + cartCount + " item(s) is placed."); }</code><br>
+      At the bottom:<br>
+      <code>checkout(0);</code><br>
+      <code>checkout(3);</code>
+    </span>
+  </div>
+</section>
 
   </main>
 </div>

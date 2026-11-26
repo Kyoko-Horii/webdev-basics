@@ -84,6 +84,49 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// Optional: challenge answer validation helper
+function checkChallenge(editorId, expectedKeywords) {
+  const textarea = document.querySelector(`#${editorId} textarea`);
+  if (!textarea) return;
+  const code = textarea.value.toLowerCase();
+  const missing = expectedKeywords.filter(kw => !code.includes(kw.toLowerCase()));
+  if (missing.length === 0) {
+    alert("✅ Great job! All required parts found.");
+  } else {
+    alert("❌ Still missing: " + missing.join(", "));
+  }
+}
+
+/* ============================================
+   EDITOR MAXIMIZE TOGGLE
+   ============================================ */
+function toggleMaximize(btn) {
+  const editor = btn.closest('.editor');
+  if (!editor) return;
+
+  const isMax = editor.classList.toggle('maximized');
+  document.body.classList.toggle('editor-locked', isMax);
+  btn.textContent = isMax ? '✕ Close' : '⛶ Maximize';
+
+  // Re-run the preview so the iframe resizes properly
+  const run = editor.querySelector('.run-btn');
+  if (run && typeof runCode === 'function') {
+    // small delay so layout settles first
+    setTimeout(() => runCode(run), 50);
+  }
+}
+
+// Allow Esc to close maximized editor
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const maxed = document.querySelector('.editor.maximized');
+    if (maxed) {
+      const btn = maxed.querySelector('.max-btn');
+      if (btn) toggleMaximize(btn);
+    }
+  }
+});
+
 // ============ 4. LANGUAGE SWITCHING ============
 const translations = {
   en: {
